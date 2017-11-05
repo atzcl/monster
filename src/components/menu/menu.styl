@@ -1,0 +1,52 @@
+.zcl-menu {
+    width: 200px;
+    height: 100%;
+    position: fixed;
+    top: 64px;
+    left: 0;
+    z-index: 1;
+    box-shadow: 2px 0 6px rgba(0, 21, 41, 0.1);
+    background: #fff;
+    overflow: auto;
+
+    .el-menu {
+        border: none;
+        background-color: transparent;
+
+        li {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            transition: all 0.3s ease 0s;
+
+            &:hover {
+                background-color: #ecf6fd;
+
+                &:after {
+                    opacity: 1;
+                }
+            }
+
+            &:after {
+                content: '';
+                position: absolute;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                border-right: 3px solid #108ee9;
+                transform: scaleY(0.0001);
+                opacity: 0;
+                transition: opacity 0.15s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+                transition: transform 0.15s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+                transition: transform 0.15s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0.15s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+            }
+        }
+    }
+
+    .el-submenu__title {
+        color: #535b6c;
+
+        &:hover {
+            background-color: transparent;
+        }
+    }
+}

@@ -1,0 +1,12 @@
+<div class="zcl-menu">
+    <el-menu v-if="menuArray.length > 0" :default-active="$route.path" class="el-menu-vertical-demo tuis-nav" :unique-opened="true" :router="true"
+        :collapse="isHidden">
+        <el-submenu :index="index + ''" v-for="(menu, index) in menuArray" :key="index">
+            <template slot="title">
+                <i :class="menu.icon" :style="menu.icon_style"></i>
+                <span slot="title">{{ menu.name }}</span>
+            </template>
+            <el-menu-item :index="item.route" v-for="(item, k) in menu.children" :key="k">{{ item.name }}</el-menu-item>
+        </el-submenu>
+    </el-menu>
+</div>
