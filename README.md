@@ -2,20 +2,18 @@
 
 >  Vue + TypeScript 系统后台
 
-## Build Setup
+## 运行
 
 ``` bash
-# install dependencies
+# 1、下载 npm 包
 npm install OR yarn install
 
-# serve with hot reload at localhost:8080
+# 2、运行项目：serve with hot reload at localhost:8080
 npm run dev OR yarn start
 
-# build for production with minification
+# 3、打包
 npm run build
 
-# build for production and view the bundle analyzer report
+# 3、可视化打包
 npm run build --report
 ```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
