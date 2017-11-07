@@ -6,10 +6,16 @@
   'use strict'
 
   import Vue from 'vue'
+  import { mapGetters } from 'vuex'
   import Component from 'vue-class-component'
   import Menus from 'components/menu/Menu'
 
   @Component({
+    computed: {
+      ...mapGetters([
+        'isCollapse'
+      ])
+    },
     components: {
       Menus
     }
@@ -34,7 +40,7 @@
                 id: 33,
                 pid: 8,
                 name: '网站设置',
-                route: '/app/config/index',
+                route: '/config',
                 icon: '',
                 icon_style: ''
               },
@@ -63,7 +69,7 @@
             route: '#cms_slides',
             icon: 'icon zcl-lunbozutu',
             icon_style:
-              'color: #000; font-size: 19px; margin-right: 1px; margin-left: -1px;',
+              'color: #000; font-size: 19px; ',
             children: [
               {
                 id: 42,
@@ -90,7 +96,7 @@
             route: '#cms_column',
             icon: 'icon zcl-wangzhan',
             icon_style:
-              'position: relative; top: 2px; color: #000; font-size: 17px; margin-right: 2px;',
+              'position: relative; top: 2px; color: #000; font-size: 17px;',
             children: [
               {
                 id: 48,
@@ -211,7 +217,7 @@
             route: '#cms_analytics',
             icon: 'icon zcl-fenxi',
             icon_style:
-              'position: relative; top: -2px; color: #000; font-size: 18px; margin-right: 2px;',
+              'position: relative; top: -2px; color: #000; font-size: 18px; ',
             children: [
               {
                 id: 86,
@@ -386,15 +392,3 @@
     }
   }
 </script>
-
-<style lang="stylus">
-  .el-header {
-    background-color: #B3C0D1;
-    color: #333;
-    line-height: 60px;
-  }
-
-  .el-aside {
-    color: #333;
-  }
-</style>

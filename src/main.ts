@@ -19,6 +19,9 @@ import 'element-ui/lib/theme-chalk/index.css'
 // 路由文件
 import router from './router'
 
+// 全局状态
+import store from './store'
+
 // 封装的 axios
 import request from './api'
 
@@ -34,6 +37,7 @@ Vue.config.productionTip = false
 // 创建 vue 实例并挂载在 id = app 上
 /* eslint-disable no-new */
 new Vue({
+  store,
   router,
   render: h => h(App)
 }).$mount('#app')

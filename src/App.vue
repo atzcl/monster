@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!-- header -->
-    <z-header></z-header>
+    <z-header v-on:clickCollapse="clickCollapse"></z-header>
     <!-- App Main -->
     <div class="zcl-main">
       <keep-alive>
@@ -23,7 +23,13 @@
       ZHeader
     }
   })
-  export default class App extends Vue {}
+  export default class App extends Vue {
+    // methods 方法
+    clickCollapse () {
+      // 变动菜单状态
+      this.$store.dispatch('ToggleMenu')
+    }
+  }
 </script>
 
 <style lang="stylus">
