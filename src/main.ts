@@ -10,7 +10,7 @@
 
 // vue 模块
 import Vue from 'vue'
-import App from './App.vue'
+import App from './app'
 
 // 引入 element-ui 模块跟样式
 import ElementUI from 'element-ui'

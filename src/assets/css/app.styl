@@ -3,3 +3,23 @@
   height: 100%;
   background: #f0f2f5;
 }
+
+.zcl-layout {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  background: #f0f2f5;
+}
+
+.zcl-content {
+  width: calc(100% - 249px);
+  padding: 24px;
+  position: absolute;
+  top: 64px;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+  background-color: #f0f0f0;
+  z-index: 1;
+  transition: left 0.3s;
+}

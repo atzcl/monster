@@ -9,7 +9,7 @@ import * as Template from './Zheader.html'
 @Component
 export default class Zheader extends Vue {
 
-    isColl: Boolean = true
+  isColl: Boolean = true
 
   // 折叠菜单
   clickCollapse() {
