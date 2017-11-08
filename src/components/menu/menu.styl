@@ -1,25 +1,22 @@
 .el-menu--collapse {
-    width: 64px !important;
-    transition: all 0.3s;
+    width: 64px;
+    height: calc(100vh - 64px);
+    transition: all .4s ease;
 }
 
-.zcl-menu {
+.zcl-menu:not(.el-menu--collapse) {
     width: 200px;
-    height: 100%;
+    height: calc(100vh - 64px);
     position: fixed;
     top: 64px;
     left: 0;
-    z-index: 1;
     box-shadow: 2px 0 6px rgba(0, 21, 41, 0.1);
-    background: #fff;
     overflow: auto;
-    transition: all 0.3s;
+    transition: all .1s ease;
     z-index: 2;
 
-    .el-menu {
-        border: none;
-        background-color: transparent;
 
+    .el-menu {
         li {
             color: rgba(0, 0, 0, 0.65);
             transition: all 0.36s ease;

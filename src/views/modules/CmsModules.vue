@@ -1,7 +1,7 @@
 <template>
   <div class="zcl-layout">
     <menus :menuArray="menuArray"></menus>
-    <div class="zcl-content">
+    <div class="zcl-content" :style="isCollapse === true ? 'left: 60px' : ''">
       <div style="height: 1800px">sss</div>
     </div>
   </div>
@@ -17,15 +17,14 @@
 
   @Component({
     computed: {
-      ...mapGetters([
-        'isCollapse'
-      ])
+      ...mapGetters([ 'isCollapse' ])
     },
     components: {
       Menus
     }
   })
   export default class CmsModules extends Vue {
+    // 路由数组
     menuArray = []
 
     // created 生命周期
