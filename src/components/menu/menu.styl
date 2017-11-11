@@ -1,20 +1,38 @@
 .el-menu--collapse {
-    width: 64px;
-    height: calc(100vh - 64px);
-    transition: all .4s ease;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
+    z-index: 2;
+}
+
+.el-menu {
+    border: none;
+    overflow-x: hidden
+}
+
+.zcl-logo {
+    width: 100%;
+    height: 64px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 64px;
+    transition: all 0.3s;
+    font-family: 'Myriad Pro', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 
 .zcl-menu:not(.el-menu--collapse) {
     width: 200px;
-    height: calc(100vh - 64px);
+    height: 100vh;
     position: fixed;
-    top: 64px;
+    top: 0;
     left: 0;
-    box-shadow: 2px 0 6px rgba(0, 21, 41, 0.1);
-    overflow: auto;
-    transition: all .1s ease;
+    overflow-x: hidden;
     z-index: 2;
-
+    background-color: #fff;
+    box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
 
     .el-menu {
         li {

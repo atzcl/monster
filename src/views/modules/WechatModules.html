@@ -1,0 +1,12 @@
+<div class="zcl-layout">
+    <vue-lazy-component>
+        <template scope="scope">
+            <st-movie-qq v-if="scope.loading" />
+        </template>
+        <st-movie-qq-skeleton slot="skeleton" />
+    </vue-lazy-component>
+    <menus :menuArray="menuArray"></menus>
+    <div class="zcl-content" :style="isCollapse === true ? 'left: 60px' : 'left: 200px'">
+        <div style="height: 1800px; background-color: #fff">sss</div>
+    </div>
+</div>

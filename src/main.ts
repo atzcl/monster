@@ -16,6 +16,9 @@ import App from './app'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
+// 引入懒加载组件
+import VueLazyComponent from '@xunlei/vue-lazy-component'
+
 // 路由文件
 import router from './router'
 
@@ -30,6 +33,7 @@ Vue.prototype.$http = request
 
 // 应用
 Vue.use(ElementUI, { size: 'small' })
+Vue.use(VueLazyComponent)
 
 // 来关闭生产模式下给出的提示
 Vue.config.productionTip = false

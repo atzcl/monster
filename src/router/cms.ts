@@ -9,9 +9,9 @@
 'use strict'
 
 // 加载模块文件
-const lazyLoading = name => () => import(`modules/${name}.vue`)
+const lazyLoading = name => () => import(`modules/${name}.ts`)
 // 加载组件
-const lazyLoadingChildren = name => () => import(`cms/${name}.vue`)
+const lazyLoadingChildren = name => () => import(`cms/${name}.ts`)
 
 const cms = [
   {
@@ -23,7 +23,7 @@ const cms = [
         path: '/',
         name: 'cms.index',        
         meta: { title: 'CMS 模块' },
-        component: lazyLoadingChildren('Index')
+        component: lazyLoadingChildren('index/Index')
       },
       {
         path: 'config',

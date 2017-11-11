@@ -1,10 +1,18 @@
-<el-menu v-if="menuArray.length > 0" :default-active="$route.path" class="zcl-menu" :unique-opened="true" :router="true"
-    :collapse="MenuCollapse">
-    <el-submenu :index="index + ''" v-for="(menu, index) in menuArray" :key="index">
-        <template slot="title">
-            <i :class="menu.icon" :style="menu.icon_style"></i>
-            <span slot="title">{{ menu.name }}</span>
-        </template>
-        <el-menu-item :index="item.route" v-for="(item, k) in menu.children" :key="k">{{ item.name }}</el-menu-item>
-    </el-submenu>
-</el-menu>
+<div>
+    <div class="zcl-menu" v-if="menuArray.length <= 0">
+        <div style="height: 64px" class="main-bg-color">&nbsp;</div>
+    </div>
+    <el-menu v-if="menuArray.length > 0" :default-active="$route.path" class="zcl-menu" :unique-opened="true" :router="true"
+        :collapse="MenuCollapse">
+        <div class="main-bg-color zcl-logo" :style="MenuCollapse === true ? 'padding-left: 0; font-size: 12px; text-align: center;' : 'padding-left: 20px;'">
+            MonSter
+        </div>
+        <el-submenu :index="index + ''" v-for="(menu, index) in menuArray" :key="index">
+            <template slot="title">
+                <i :class="menu.icon" :style="menu.icon_style"></i>
+                <span slot="title">{{ menu.name }}</span>
+            </template>
+            <el-menu-item :index="item.route" v-for="(item, k) in menu.children" :key="k">{{ item.name }}</el-menu-item>
+        </el-submenu>
+    </el-menu>
+</div>

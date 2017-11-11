@@ -1,14 +1,25 @@
 <header>
-   <div class="sider main-bg-color"></div>
-   <div class="con">
-       <i class="icon trigger" :class="isColl === true ? 'zcl-menuunfold' : 'zcl-menufold'" @click="clickCollapse"></i>
-       <div class="rights">
-           <span class="action-right">
-               <span class="avatar zcl-avatar zcl-avatar-sm">
-                   <img src="https://gw.alipayobjects.com/zos/rmsportal/UjusLxePxWGkttaqqmUI.png" alt="zcl-avatar">
-               </span>
-               At zcl
-           </span>
-       </div>
-   </div>
+    <div class="con" :style="isColl === true ? 'padding-left: 200px;' : 'padding-left: 64px;'">
+        <i class="icon trigger" :class="isColl === true ? 'zcl-menuunfold' : 'zcl-menufold'" @click="clickCollapse"></i>
+        <div class="zcl-nav">
+            <ul>
+                <li class="zcl-cursor"><i class="icon zcl-wangzhan" style="top: 2px; position: relative; margin-right: 4px;"></i>CMS</li>
+                <li class="zcl-cursor"><i class="icon zcl-weixin" style="font-size: 20px; margin-right: 4px;"></i>微信</li>
+                <li class="zcl-cursor"><i class="icon zcl-shangpin1" style="margin-right: 4px; font-size: 17px;"></i>商城</li>
+            </ul>
+        </div>
+        <div class="rights">
+            <span class="zcl-message main-aid-hover-bg zcl-cursor">
+                <el-badge :value="3" class="item">
+                    <i class="icon zcl-xiaoxi"></i>
+                </el-badge>
+            </span>
+            <span class="action-right main-aid-hover-bg">
+                <span class="avatar zcl-avatar zcl-avatar-sm">
+                    <img src="https://gw.alipayobjects.com/zos/rmsportal/UjusLxePxWGkttaqqmUI.png" alt="zcl-avatar">
+                </span>
+                At zcl
+            </span>
+        </div>
+    </div>
 </header>

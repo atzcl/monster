@@ -8,7 +8,7 @@
 
 'use strict'
 
-const lazyLoading = name => () => import(`modules/${name}.vue`)
+const lazyLoading = name => () => import(`modules/${name}.ts`)
 
 const wechat = [
   {

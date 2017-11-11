@@ -38,7 +38,7 @@ body {
   font-size: 14px;
   line-height: 1.5;
   color: rgba(0, 0, 0, 0.65);
-  background-color: #fff;
+  background-color: #f0f2f5;
   overflow-x: hidden;
   width: 100%;
   height: 100%;
@@ -98,7 +98,6 @@ ol, ul {
   -webkit-font-smoothing: antialiased;
 }
 
-
 /* 主色 */
 .main-color {
   color: #3b77e3;
@@ -112,6 +111,19 @@ ol, ul {
   border-color: #3b77e3;
 }
 
+/* 主色鼠标移上 */
+.main-hover-color {
+  &:hover {
+    color: #3b77e3;
+  }
+}
+
+.main-hover-bg {
+  &:hover {
+    background-color: #3b77e3;
+  }
+}
+
 /* 主辅色 */
 .main-aid-color {
   color: #5B8CFF;
@@ -123,4 +135,10 @@ ol, ul {
 
 .main-aid-border-color {
   border-color: #5B8CFF;
+}
+
+.main-aid-hover-bg {
+  &:hover {
+    background-color: #e6f7ff;
+  }
 }
