@@ -12,7 +12,7 @@ export default class Zheader extends Vue {
   isColl: Boolean = true
 
   // 折叠菜单
-  clickCollapse() {
+  clickCollapse () {
     // icon 切换
     this.isColl = !this.isColl
     this.$emit('clickCollapse')

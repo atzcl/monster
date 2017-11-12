@@ -17,6 +17,16 @@ header {
         display: flex;
 
         .zcl-nav {
+            .is-active {
+                color: rgba(0, 0, 0, 0.75);
+
+                &:after {
+                    opacity: 1 !important;
+                    transform: scaleY(1) !important;
+                    transition: transform 0.15s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.15s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.15s cubic-bezier(0.645, 0.045, 0.355, 1) !important;
+                }
+            }
+
             ul {
                 display: flex;
 
@@ -25,28 +35,33 @@ header {
                     padding: 0px 20px;
                     position: relative;
                     font-size: 14px;
-                    color: rgba(0, 0, 0, .5);
+                    color: rgba(0, 0, 0, 0.5);
                     font-family: 'Myriad Pro', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 
+                    i {
+                        position: relative;
+                        margin-right: 6px;
+                    }
+
                     &:hover {
+                        color: rgba(0, 0, 0, 0.75);
+
                         &:after {
-                            opacity: 1 !important;
-                            transform: scaleY(1) !important;
-                            transition: transform 0.15s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.15s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.15s cubic-bezier(0.645, 0.045, 0.355, 1) !important;
-                            background-color: #4fe3c1;
+                            opacity: 1;
+                            transform: scaleX(1);
+                            transition: transform 0.15s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.15s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
                         }
                     }
 
                     &:after {
                         content: '';
-                        display: block;
+                        position: absolute;
+                        left: 0;
+                        bottom: -2px;
                         width: 100%;
                         height: 4px;
-                        background-color: transparent;
-                        position: absolute;
-                        bottom: -2px;
-                        left: 0;
-                        transform: scaleY(0.0001);
+                        border-bottom: 4px solid #4fe3c1;
+                        transform: scaleX(0.0001);
                         opacity: 0;
                         transition: transform 0.15s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
                     }
@@ -56,7 +71,7 @@ header {
 
         .trigger {
             display: inline-block;
-            font-size: 30px;
+            font-size: 26px;
             line-height: 64px;
             cursor: pointer;
             transition: all 0.3s;
@@ -75,7 +90,7 @@ header {
             padding: 0px 20px;
 
             .zcl-message {
-                padding: 23px 15px;
+                padding: 24px 15px;
                 height: 100%;
                 transition: all 0.3s;
 

@@ -4,7 +4,6 @@ import Vue from 'vue'
 import { mapGetters } from 'vuex'
 import Component from 'vue-class-component'
 import Menus from 'components/menu/Menu'
-import Loading from 'components/skeleton/Loading'
 
 import * as Template from './CmsModules.html'
 
@@ -14,8 +13,7 @@ import * as Template from './CmsModules.html'
     ...mapGetters(['isCollapse'])
   },
   components: {
-    Menus,
-    Loading
+    Menus
   }
 })
 export default class CmsModules extends Vue {

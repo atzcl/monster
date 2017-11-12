@@ -1,3 +1,8 @@
-<div>
-        sss
+<div style="width: 100%; background-color: #fff; border-radius: 5px">
+        <vue-lazy-component class="custom-transition">
+                <template scope="scope">
+                        <ve-line :data="chartData" :settings="chartSettings" v-if="scope.loading"></ve-line>
+                </template>
+                <skeleton-loading slot="skeleton" />
+        </vue-lazy-component>
 </div>
