@@ -2,7 +2,7 @@
 +-----------------------------------------------------------------------------------------------------------------------
 | Author: 植成樑 <atzcl0310@gmail.com>  Blog：https://www.zcloop.com
 +-----------------------------------------------------------------------------------------------------------------------
-| vuex 全局状态   
+| vuex 全局状态
 |
 */
 
@@ -28,7 +28,7 @@ const mutations = {
 
 // 设置 actions ，用于执行异步操作的，操作完毕后触发 mutations 里的方法去改变 state 的状态
 const actions = {
-  ToggleMenu({ commit }) {
+  ToggleMenu ({ commit }) {
     // 调用 mutations 的 ZCL__VUEX_MENU
     commit('ZCL__VUEX_MENU')
   }

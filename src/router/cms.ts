@@ -21,7 +21,7 @@ const cms = [
     children: [
       {
         path: '/',
-        name: 'cms.index',        
+        name: 'cms.index',
         meta: { title: 'CMS 模块' },
         component: lazyLoadingChildren('index/Index')
       },

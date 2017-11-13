@@ -7,7 +7,6 @@ import Menus from 'components/menu/Menu'
 
 import * as Template from './CmsModules.html'
 
-
 @Template
 @Component({
   computed: {

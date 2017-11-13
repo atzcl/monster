@@ -6,7 +6,6 @@ import UEditor from 'components/editor/UEditor.vue'
 
 import * as Template from './Config.html'
 
-
 @Template
 @Component({
   components: {
@@ -16,7 +15,7 @@ import * as Template from './Config.html'
 export default class CMSConfig extends Vue {
   content: string = 'Hello'
 
-  @Watch('child')
+  @Watch('content')
   onContent (newVal, oldVal) {
     console.log(newVal)
   }

@@ -13,9 +13,9 @@ const _convertTime = (time) => {
 /**
  * 生成随机字符串 @example1 生成2-10位随机串：randomWord(true, 2, 10) @example2 生成32位随机串：randomWord(false, 32)
  *
- * @param randomFlag 
- * @param min 
- * @param max 
+ * @param randomFlag
+ * @param min
+ * @param max
  */
 const _randomWord = (randomFlag: boolean = true, min: number = 6, max: number = 8) => {
   let str = ''

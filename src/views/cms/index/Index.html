@@ -1,8 +1,47 @@
-<div style="width: 100%; background-color: #fff; border-radius: 5px">
-        <vue-lazy-component class="custom-transition">
-                <template scope="scope">
-                        <ve-line :data="chartData" :settings="chartSettings" v-if="scope.loading"></ve-line>
-                </template>
-                <skeleton-loading slot="skeleton" />
-        </vue-lazy-component>
+<div>
+  <el-row style="margin-bottom: 24px; margin-left: -12px; margin-right: -12px;">
+    <el-col :span="6" style="padding-right: 12px; padding-left: 12px">
+      <div class="zcl-card zcl-bg-fff-row" style="padding: 20px 24px 8px;">
+              <div class="mate" style="    color: rgba(0, 0, 0, 0.45);
+              font-size: 14px;
+              position: relative;
+              line-height: 22px;
+              height: 22px;">总浏览PV</div>
+              <p class="total" style="    overflow: hidden;
+              -o-text-overflow: ellipsis;
+              text-overflow: ellipsis;
+              word-break: break-all;
+              white-space: nowrap;
+              color: rgba(0, 0, 0, 0.85);
+              margin-top: 4px;
+              font-size: 30px;
+              line-height: 38px;
+              height: 38px;">15,439</p>
+              <div class="content" style="height: 46px"></div>
+              <div class="footer" style="    border-top: 1px solid #e8e8e8;
+              padding-top: 9px;
+              margin-top: 8px;
+          ">周同比 12%  日环比 22% 独立 IP 数 12354</div>
+        </div>
+    </el-col>
+    <el-col :span="6" style="padding-right: 12px; padding-left: 12px">
+      <div class="zcl-bg-fff-row" style="padding: 20px 24px 8px;">sss</div>
+    </el-col>
+    <el-col :span="6" style="padding-right: 12px; padding-left: 12px">
+      <div class="zcl-bg-fff-row" style="padding: 20px 24px 8px;">sss</div>
+    </el-col>
+    <el-col :span="6" style="padding-left: 12px; padding-right: 12px">
+      <div class="zcl-bg-fff-row" style="padding: 20px 24px 8px;">sss</div>
+    </el-col>
+  </el-row>
+
+  <div class="zcl-bg-fff-row" style="height: 400px">
+    <vue-lazy-component class="custom-transition">
+      <template scope="scope">
+        <ve-line :data="chartData" :settings="chartSettings" :colors="colors" v-if="scope.loading"></ve-line>
+      </template>
+      <skeleton-loading slot="skeleton" />
+    </vue-lazy-component>
+  </div>
+
 </div>

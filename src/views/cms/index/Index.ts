@@ -3,9 +3,8 @@
 import Vue from 'vue'
 import Component from 'vue-class-component'
 
-import SkeletonLoading from 'components/skeleton/Loading'
 import * as Template from './Index.html'
-
+import SkeletonLoading from 'components/skeleton/Loading'
 
 @Template
 @Component({
@@ -15,19 +14,21 @@ import * as Template from './Index.html'
 })
 export default class CMSIndex extends Vue {
   chartData = {
-    columns: ['日期', '成本', '利润', '占比', '其他'],
+    columns: ['日期', 'PC端', '移动端'],
     rows: [
-      { '成本': 1523, '日期': '1月1日', '利润': 1523, '占比': 0.12, '其他': 100 },
-      { '成本': 1223, '日期': '1月2日', '利润': 1523, '占比': 0.345, '其他': 100 },
-      { '成本': 2123, '日期': '1月3日', '利润': 1523, '占比': 0.7, '其他': 100 },
-      { '成本': 4123, '日期': '1月4日', '利润': 1523, '占比': 0.31, '其他': 100 },
-      { '成本': 3123, '日期': '1月5日', '利润': 1523, '占比': 0.12, '其他': 100 },
-      { '成本': 7123, '日期': '1月6日', '利润': 1523, '占比': 0.65, '其他': 100 }
+      { '日期': '11-13', 'PC端': 1523, '移动端': 541 },
+      { '日期': '11-13', 'PC端': 1223, '移动端': 965 },
+      { '日期': '11-13', 'PC端': 2123, '移动端': 471 },
+      { '日期': '11-13', 'PC端': 4123, '移动端': 1523 },
+      { '日期': '11-13', 'PC端': 3123, '移动端': 654 },
+      { '日期': '11-13', 'PC端': 7123, '移动端': 88 }
     ]
   }
 
+  colors = ['#6DD8D9', '#BEE6FF']
+
   chartSettings = {
-    metrics: ['成本', '利润'],
-    dimension: ['日期']
+    stack: { '本周访问设备数据': ['PC端', '移动端'] },
+    area: true
   }
 }
