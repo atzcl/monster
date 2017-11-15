@@ -11,23 +11,103 @@
 }
 
 .zcl-content {
-  margin: 24px;
+  padding: 24px;
   position: absolute;
   top: 64px;
   right: 0;
   bottom: 0;
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
   z-index: 1;
   transition: left 0.3s;
+
+  /* 通用 view class */
+  .zcl-bg-fff-row {
+    background-color: #fff;
+    border-radius: 2px;
+    transition: all 0.4s;
+
+    &:hover {
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      transform: translate3d(0, -2px, 0);
+      cursor: pointer;
+    }
+  }
+
+  /* 统计 class */
+  .zcl-card {
+    padding: 20px 24px 8px;
+
+    .mate {
+      color: rgba(0, 0, 0, 0.45);
+      font-size: 14px;
+      position: relative;
+      line-height: 22px;
+      height: 22px;
+    }
+
+    .total {
+      overflow: hidden;
+      -o-text-overflow: ellipsis;
+      text-overflow: ellipsis;
+      word-break: break-all;
+      white-space: nowrap;
+      color: rgba(0, 0, 0, 0.85);
+      margin-top: 4px;
+      font-size: 30px;
+      line-height: 38px;
+      height: 38px;
+    }
+
+    .content {
+      // height: 46px;
+      height: 30px
+    }
+
+    .footer {
+      border-top: 1px solid #e8e8e8;
+      padding-top: 9px;
+      margin: 8px 0px;
+      display: flex;
+      justify-content: space-between;
+
+      i {
+        font-size: 18px;
+        position: relative;
+        top: 2px;
+        left: 2px;
+      }
+    }
+  }
+
+  /* cms 首页 line */
+  .line-echart {
+    height: 400px;
+    padding-top: 20px;
+    margin-top: 24px;
+  }
+
+  /* cms 首页地图 */
+  .map-echart {
+    height: 400px;
+    padding-top: 20px;
+    width: 100%;
+    display: flex;
+
+    .region-pv {
+      width: 400px;
+      margin-top: -10px;
+      margin-left: 20px;
+
+      h3 {
+        margin-bottom: 15px
+      }
+    }
+  }
 }
 
 .zcl-cursor {
   cursor: pointer;
-}
-
-.zcl-bg-fff-row {
-  background-color: #fff;
-  border-radius: 2px;
 }
 
 .timeline-item {

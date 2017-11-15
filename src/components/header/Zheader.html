@@ -1,25 +1,52 @@
 <header>
-    <div class="con" :style="isColl === true ? 'padding-left: 200px;' : 'padding-left: 64px;'">
-        <i class="icon trigger" :class="isColl === true ? 'zcl-menuunfold' : 'zcl-menufold'" @click="clickCollapse"></i>
-        <div class="zcl-nav">
-            <ul>
-                <li class="zcl-cursor is-active main-aid-hover-bg"><i class="icon zcl-wangzhan" style="top: 1px;"></i>CMS</li>
-                <li class="zcl-cursor main-aid-hover-bg"><i class="icon zcl-weixin" style="font-size: 20px;"></i>微信</li>
-                <li class="zcl-cursor main-aid-hover-bg"><i class="icon zcl-shangpin1" style="font-size: 17px;"></i>商城</li>
-            </ul>
-        </div>
-        <div class="rights">
-            <span class="zcl-message main-aid-hover-bg zcl-cursor">
-                <el-badge :value="3" class="item">
-                    <i class="icon zcl-xiaoxi"></i>
-                </el-badge>
-            </span>
-            <span class="action-right main-aid-hover-bg">
-                <span class="avatar zcl-avatar zcl-avatar-sm">
-                    <img src="https://gw.alipayobjects.com/zos/rmsportal/UjusLxePxWGkttaqqmUI.png" alt="zcl-avatar">
-                </span>
-                At zcl
-            </span>
-        </div>
+  <div class="con" :style="isColl === true ? 'padding-left: 200px;' : 'padding-left: 64px;'">
+    <i class="icon trigger" :class="isColl === true ? 'zcl-menuunfold' : 'zcl-menufold'" @click="clickCollapse"></i>
+    <div class="zcl-nav">
+      <ul>
+        <li class="zcl-cursor is-active main-aid-hover-bg">
+          <i class="icon zcl-wangzhan" style="top: 1px;"></i>CMS</li>
+        <li class="zcl-cursor main-aid-hover-bg">
+          <i class="icon zcl-weixin" style="font-size: 20px;"></i>微信</li>
+        <li class="zcl-cursor main-aid-hover-bg">
+          <i class="icon zcl-shangpin1" style="font-size: 17px;"></i>商城</li>
+      </ul>
     </div>
+    <div class="rights">
+      <el-dropdown trigger="click">
+        <span class="zcl-message main-aid-hover-bg zcl-cursor">
+          <el-badge :value="3" class="item">
+            <i class="icon zcl-xiaoxi"></i>
+          </el-badge>
+        </span>
+        <el-dropdown-menu slot="dropdown" class="zcl-header-message-box">
+          <el-tabs v-model="activeName" type="border-card">
+            <el-tab-pane label="通知" name="notify">用户管理</el-tab-pane>
+            <el-tab-pane label="消息" name="message">配置管理</el-tab-pane>
+          </el-tabs>
+        </el-dropdown-menu>
+      </el-dropdown>
+
+      <el-dropdown @visible-change="visibleChange">
+        <span class="el-dropdown-link">
+          <span class="action-right main-aid-hover-bg">
+            <span class="avatar zcl-avatar zcl-avatar-sm">
+              <img src="https://gw.alipayobjects.com/zos/rmsportal/UjusLxePxWGkttaqqmUI.png" alt="zcl-avatar">
+            </span>
+            At zcl
+            <i class="el-icon-arrow-down" :class="dropdownICON"></i>
+          </span>
+        </span>
+        <el-dropdown-menu slot="dropdown" class="zcl-users">
+          <el-dropdown-item>
+            <i class="icon zcl-qxgl main-color"></i> 超级管理员</el-dropdown-item>
+          <el-dropdown-item>
+            <i class="icon zcl-xitong"></i>个人中心</el-dropdown-item>
+          <el-dropdown-item style="height: 1px "></el-dropdown-item>
+          <el-dropdown-item style="border-top: 1px solid #eee; margin-top: 10px">
+            <i class="icon zcl-off main-color-red"></i>退出登录</el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
+
+    </div>
+  </div>
 </header>

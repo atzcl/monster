@@ -21,18 +21,14 @@
     @Prop()
     UEditorContent: String
 
-    data (): Object {
-        return {
-            // 编辑器 ID
-          editorID: 'editor_id_' + util._randomWord(true, 6, 10),
-          instance:  null,
-          // scriptTagStatus -> 0:代码未加载，1:两个代码依赖加载了一个，2:两个代码依赖都已经加载完成
-          scriptTagStatus: 0,
-          UEditorDefault: this.UEditorContent
-        }
-    }
+     // 编辑器 ID
+    editorID: string = 'editor_id_' + util._randomWord(true, 6, 10)
+    instance: string = null
+    // scriptTagStatus -> 0:代码未加载，1:两个代码依赖加载了一个，2:两个代码依赖都已经加载完成
+    scriptTagStatus : number = 0
+    UEditorDefault : any = this.UEditorContent
 
-    created () : void {
+    created () {
       if ((<any>window).UE !== undefined) {
         // 如果全局对象存在，说明编辑器代码已经初始化完成，直接加载编辑器
         this.scriptTagStatus = 2
@@ -95,7 +91,7 @@
       this.initEditor()
     }
 
-    initEditor () {
+    initEditor () : any {
       // scriptTagStatus 为 2 的时候，说明两个必需引入的 js 文件都已经被引入，且加载完成
       if (this.scriptTagStatus === 2 && this.instance === null) {
         // Vue 异步执行 DOM 更新，这样一来代码执行到这里的时候可能 template 里面的 script 标签还没真正创建

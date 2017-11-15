@@ -1,41 +1,103 @@
 <div>
   <el-row style="margin-bottom: 24px; margin-left: -12px; margin-right: -12px;">
     <el-col :span="6" style="padding-right: 12px; padding-left: 12px">
-      <div class="zcl-card zcl-bg-fff-row" style="padding: 20px 24px 8px;">
-              <div class="mate" style="    color: rgba(0, 0, 0, 0.45);
-              font-size: 14px;
-              position: relative;
-              line-height: 22px;
-              height: 22px;">总浏览PV</div>
-              <p class="total" style="    overflow: hidden;
-              -o-text-overflow: ellipsis;
-              text-overflow: ellipsis;
-              word-break: break-all;
-              white-space: nowrap;
-              color: rgba(0, 0, 0, 0.85);
-              margin-top: 4px;
-              font-size: 30px;
-              line-height: 38px;
-              height: 38px;">15,439</p>
-              <div class="content" style="height: 46px"></div>
-              <div class="footer" style="    border-top: 1px solid #e8e8e8;
-              padding-top: 9px;
-              margin-top: 8px;
-          ">周同比 12%  日环比 22% 独立 IP 数 12354</div>
+      <div class="zcl-card zcl-bg-fff-row">
+        <div class="mate">总浏览PV</div>
+        <p class="total">15,439</p>
+        <div class="content"></div>
+        <div class="footer">
+          <div>周同比
+            <strong>12%</strong>
+            <i class="icon zcl-arrLeft-fill main-color-red"></i>
+          </div>
+          <div>日环比
+            <strong>22%</strong>
+            <i class="icon zcl-arrUp-fill main-color-lv"></i>
+          </div>
+          <div>IP 数
+            <strong>12354</strong>
+          </div>
         </div>
+      </div>
     </el-col>
     <el-col :span="6" style="padding-right: 12px; padding-left: 12px">
-      <div class="zcl-bg-fff-row" style="padding: 20px 24px 8px;">sss</div>
+      <div class="zcl-card zcl-bg-fff-row">
+        <div class="mate">总浏览PV</div>
+        <p class="total">15,439</p>
+        <div class="content"></div>
+        <div class="footer">
+          <div>周同比
+            <strong>12%</strong>
+            <i class="icon zcl-arrLeft-fill main-color-red"></i>
+          </div>
+          <div>日环比
+            <strong>22%</strong>
+            <i class="icon zcl-arrUp-fill main-color-lv"></i>
+          </div>
+          <div>IP 数
+            <strong>12354</strong>
+          </div>
+        </div>
+      </div>
     </el-col>
     <el-col :span="6" style="padding-right: 12px; padding-left: 12px">
-      <div class="zcl-bg-fff-row" style="padding: 20px 24px 8px;">sss</div>
+      <div class="zcl-card zcl-bg-fff-row">
+        <div class="mate">总浏览PV</div>
+        <p class="total">15,439</p>
+        <div class="content"></div>
+        <div class="footer">
+          <div>周同比
+            <strong>12%</strong>
+            <i class="icon zcl-arrLeft-fill main-color-red"></i>
+          </div>
+          <div>日环比
+            <strong>22%</strong>
+            <i class="icon zcl-arrUp-fill main-color-lv"></i>
+          </div>
+          <div>IP 数
+            <strong>12354</strong>
+          </div>
+        </div>
+      </div>
     </el-col>
     <el-col :span="6" style="padding-left: 12px; padding-right: 12px">
-      <div class="zcl-bg-fff-row" style="padding: 20px 24px 8px;">sss</div>
+      <div class="zcl-card zcl-bg-fff-row">
+        <div class="mate">总浏览PV</div>
+        <p class="total">15,439</p>
+        <div class="content"></div>
+        <div class="footer">
+          <div>周同比
+            <strong>12%</strong>
+            <i class="icon zcl-arrLeft-fill main-color-red"></i>
+          </div>
+          <div>日环比
+            <strong>22%</strong>
+            <i class="icon zcl-arrUp-fill main-color-lv"></i>
+          </div>
+          <div>IP 数
+            <strong>12354</strong>
+          </div>
+        </div>
+      </div>
     </el-col>
   </el-row>
 
-  <div class="zcl-bg-fff-row" style="height: 400px">
+  <div class="zcl-bg-fff-row map-echart">
+      <div class="region-pv">
+          <h3>访问城市 PV Top 10</h3>
+          <el-table :data="tableData" height="360" border>
+              <el-table-column :prop="item.attrs" :label="item.label" :width="item.width" v-for="(item, index) in tableColumns" :key="index" />
+          </el-table>
+      </div>
+      <vue-lazy-component class="custom-transition" style="width: calc(100% - 450px); margin-left: 30px">
+        <template scope="scope">
+          <ve-map :data="echartMapData" :settings="mapSettings" v-if="scope.loading"></ve-map>
+        </template>
+        <skeleton-loading slot="skeleton" />
+      </vue-lazy-component>
+    </div>
+
+  <div class="zcl-bg-fff-row line-echart">
     <vue-lazy-component class="custom-transition">
       <template scope="scope">
         <ve-line :data="chartData" :settings="chartSettings" :colors="colors" v-if="scope.loading"></ve-line>

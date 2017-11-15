@@ -98,6 +98,7 @@ header {
                     position: relative;
                     top: 3px;
                     font-size: 20px;
+                    left: -6px;
                 }
 
                 .el-badge__content.is-fixed {
@@ -112,6 +113,11 @@ header {
                 transition: all 0.3s;
                 height: 100%;
 
+                .el-icon-arrow-up {
+                    margin-left: 5px;
+                    transition: all 0.3s;
+                }
+
                 .avatar {
                     margin: 20px 8px 20px 0;
                     color: #1890ff;
@@ -120,5 +126,38 @@ header {
                 }
             }
         }
+    }
+}
+
+/* 下拉样式 */
+.zcl-users {
+    border-radius: 8px;
+
+    .zcl-off {
+        font-size: 20px;
+        top: 2px;
+        margin-right: 6px;
+    }
+
+    .zcl-qxgl {
+        font-size: 20px;
+        top: 2px;
+        left: -2px;
+        margin-right: 3px;
+    }
+
+    .zcl-xitong {
+        font-size: 18px;
+        margin-right: 8px;
+        top: 1px;
+    }
+}
+
+.zcl-header-message-box {
+    width: 335px;
+
+    .el-tabs__item {
+        // margin-right: 32px;
+        // padding: 12px 16px;
     }
 }
