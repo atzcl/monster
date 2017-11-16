@@ -1,20 +1,22 @@
 header {
     width: 100%;
-    height: 64px;
-    line-height: 64px;
+    height: 100%;
     position: relative;
     padding: 0px 12px 0px 0px;
     background: rgb(255, 255, 255);
     display: flex;
+    flex-direction: column;
 
     .con {
         width: 100%;
-        height: 100%;
+        height: 64px;
+        line-height: 64px;
         position: relative;
         box-shadow: 0 1px 4px rgba(0, 21, 41, 0.1);
         z-index: 2;
         transition: padding 0.3s;
         display: flex;
+        flex-direction: row;
 
         .zcl-nav {
             .is-active {
@@ -90,19 +92,21 @@ header {
             padding: 0px 20px;
 
             .zcl-message {
-                padding: 24px 15px;
+                padding: 24px 0px;
                 height: 100%;
                 transition: all 0.3s;
 
                 i {
                     position: relative;
                     top: 3px;
+                    left: 0;
                     font-size: 20px;
-                    left: -6px;
+                    padding: 0px 20px;
                 }
 
                 .el-badge__content.is-fixed {
                     top: 25px;
+                    right: 28px;
                 }
             }
 
@@ -156,8 +160,114 @@ header {
 .zcl-header-message-box {
     width: 335px;
 
-    .el-tabs__item {
-        // margin-right: 32px;
-        // padding: 12px 16px;
+    .el-tabs--border-card {
+        box-shadow: none;
+        border: none;
+
+        .el-tabs__header {
+            background: none;
+            border-bottom: 1px solid #e8e8e8;
+
+            .el-tabs__nav-scroll {
+                display: flex;
+                justify-content: center;
+            }
+
+            .el-tabs__item {
+                margin: 0px 32px;
+                padding: 0px 16px;
+                border-left: none;
+                border-right: none;
+            }
+
+            .is-active {
+                border-bottom: 2px solid #3b77e3;
+                border-left: none;
+                border-right: none;
+            }
+        }
+
+        .el-tabs__content {
+            padding: 0px;
+
+            ul {
+                max-height: 400px;
+                overflow: auto;
+
+                li {
+                    display: flex;
+                    align-items: center;
+                    padding-top: 12px;
+                    padding-bottom: 12px;
+                    transition: all 0.3s;
+                    overflow: hidden;
+                    padding-left: 24px;
+                    padding-right: 24px;
+                    background: #fff;
+                    border-bottom: 1px solid #e8e8e8;
+                    align-items: flex-start;
+
+                    &:hover {
+                        background-color: #e6f7ff;
+                    }
+
+                    img {
+                        margin-right: 16px;
+                    }
+
+                    .content {
+                        display: flex;
+                        flex-direction: column;
+
+                        .title {
+                            color: rgba(0, 0, 0, 0.65);
+                            font-size: 14px;
+                            line-height: 22px;
+                        }
+
+                        .desc {
+                            width: 230px;
+                            color: rgba(0, 0, 0, 0.45);
+                            font-size: 14px;
+                            line-height: 22px;
+                            margin-bottom: 4px;
+                        }
+
+                        .end {
+                            color: rgba(0, 0, 0, 0.45);
+                            font-size: 12px;
+                            line-height: 22px;
+                        }
+                    }
+                }
+            }
+
+            .face {
+                display: flex;
+                flex: 1;
+                height: 36px;
+                line-height: 46px;
+                text-align: center;
+                color: rgba(0, 0, 0, 0.65);
+                border-radius: 0 0 4px 4px;
+                transition: all 0.3s;
+
+                .more {
+                    width: 50%;
+
+                    &:hover {
+                        color: #3b77e3;
+                    }
+                }
+
+                .clear {
+                    width: 50%;
+
+                    &:hover {
+                        color: #3b77e3;
+                    }
+                }
+            }
+        }
     }
 }

@@ -1,5 +1,5 @@
-<header>
-  <div class="con" :style="isColl === true ? 'padding-left: 200px;' : 'padding-left: 64px;'">
+<header :style="conStyle">
+  <div class="con">
     <i class="icon trigger" :class="isColl === true ? 'zcl-menuunfold' : 'zcl-menufold'" @click="clickCollapse"></i>
     <div class="zcl-nav">
       <ul>
@@ -11,17 +11,131 @@
           <i class="icon zcl-shangpin1" style="font-size: 17px;"></i>商城</li>
       </ul>
     </div>
-    <div class="rights">
-      <el-dropdown trigger="click">
+    <div class="rights" :style="rightStyle">
+      <el-dropdown trigger="click" @visible-change="messageTabsChange">
         <span class="zcl-message main-aid-hover-bg zcl-cursor">
-          <el-badge :value="3" class="item">
+          <el-badge :value="8" class="item">
             <i class="icon zcl-xiaoxi"></i>
           </el-badge>
         </span>
-        <el-dropdown-menu slot="dropdown" class="zcl-header-message-box">
+        <el-dropdown-menu slot="dropdown" class="zcl-header-message-box" 
+                                          v-loading="messageLoading" 
+                                          element-loading-spinner="el-icon-loading" 
+                                          element-loading-background="rgba(236, 246, 253, .7)"
+        >
           <el-tabs v-model="activeName" type="border-card">
-            <el-tab-pane label="通知" name="notify">用户管理</el-tab-pane>
-            <el-tab-pane label="消息" name="message">配置管理</el-tab-pane>
+            <el-tab-pane label="通知 (4)" name="notify">
+              <ul>
+                <li class="zcl-cursor">
+                  <img class="zcl-avatar" src="https://gw.alipayobjects.com/zos/rmsportal/ThXAXghbEsBCCSDihZxY.png">
+                  <div class="content">
+                    <div class="title">
+                      新订单通知
+                    </div>
+                    <div class="desc zcl-one-row">
+                      Apple iPhone X (A1865) 64GB 银色 移动联通电信4G手机
+                    </div>
+                    <div class="end">2分钟前</div>
+                  </div>
+                </li>
+                <li class="zcl-cursor">
+                  <img class="zcl-avatar" src="https://gw.alipayobjects.com/zos/rmsportal/ThXAXghbEsBCCSDihZxY.png">
+                  <div class="content">
+                    <div class="title">
+                      新退款/退货通知
+                    </div>
+                    <div class="desc zcl-one-row">
+                      Apple iPhone X (A1865) 64GB 银色 移动联通电信4G手机
+                    </div>
+                    <div class="end">2分钟前</div>
+                  </div>
+                </li>
+                <li class="zcl-cursor">
+                  <img class="zcl-avatar" src="https://gw.alipayobjects.com/zos/rmsportal/ThXAXghbEsBCCSDihZxY.png">
+                  <div class="content">
+                    <div class="title">
+                      新导入信息通知
+                    </div>
+                    <div class="desc zcl-one-row">
+                      用户信息导入成功，请前往查看
+                    </div>
+                    <div class="end">2分钟前</div>
+                  </div>
+                </li>
+                <li class="zcl-cursor">
+                  <img class="zcl-avatar" src="https://gw.alipayobjects.com/zos/rmsportal/ThXAXghbEsBCCSDihZxY.png">
+                  <div class="content">
+                    <div class="title">
+                      新导出信息通知
+                    </div>
+                    <div class="desc zcl-one-row">
+                      订单信息导入成功，请前往下载
+                    </div>
+                    <div class="end">2分钟前</div>
+                  </div>
+                </li>
+              </ul>
+              <div class="face">
+                <div class="more zcl-cursor">查看更多</div>
+                <div class="clear zcl-cursor">清空通知</div>
+              </div>
+            </el-tab-pane>
+            <el-tab-pane label="消息 (4)" name="message">
+              <ul>
+                <li class="zcl-cursor">
+                  <img class="zcl-avatar" src="https://gw.alipayobjects.com/zos/rmsportal/fcHMVNCjPOsbUGdEduuv.jpeg">
+                  <div class="content">
+                    <div class="title">
+                      atzcl 发表了新评论
+                    </div>
+                    <div class="desc zcl-one-row">
+                      6666
+                    </div>
+                    <div class="end">2分钟前</div>
+                  </div>
+                </li>
+                <li class="zcl-cursor">
+                  <img class="zcl-avatar" src="https://gw.alipayobjects.com/zos/rmsportal/fcHMVNCjPOsbUGdEduuv.jpeg">
+                  <div class="content">
+                    <div class="title">
+                      atzcl 发表了新评论
+                    </div>
+                    <div class="desc zcl-one-row">
+                      6666
+                    </div>
+                    <div class="end">2分钟前</div>
+                  </div>
+                </li>
+                <li class="zcl-cursor">
+                  <img class="zcl-avatar" src="https://gw.alipayobjects.com/zos/rmsportal/fcHMVNCjPOsbUGdEduuv.jpeg">
+                  <div class="content">
+                    <div class="title">
+                      atzcl 发表了新评论
+                    </div>
+                    <div class="desc zcl-one-row">
+                      6666
+                    </div>
+                    <div class="end">2分钟前</div>
+                  </div>
+                </li>
+                <li class="zcl-cursor">
+                  <img class="zcl-avatar" src="https://gw.alipayobjects.com/zos/rmsportal/fcHMVNCjPOsbUGdEduuv.jpeg">
+                  <div class="content">
+                    <div class="title">
+                      atzcl 发表了新评论
+                    </div>
+                    <div class="desc zcl-one-row">
+                      6666
+                    </div>
+                    <div class="end">2分钟前</div>
+                  </div>
+                </li>
+              </ul>
+              <div class="face">
+                <div class="more zcl-cursor">查看更多</div>
+                <div class="clear zcl-cursor">清空通知</div>
+              </div>
+            </el-tab-pane>
           </el-tabs>
         </el-dropdown-menu>
       </el-dropdown>
@@ -49,4 +163,5 @@
 
     </div>
   </div>
+  <tags-page></tags-page>
 </header>

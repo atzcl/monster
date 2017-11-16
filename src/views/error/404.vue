@@ -22,7 +22,10 @@
   'use strict'
 
   export default {
-    name: 'error_404'
+    name: 'error_404',
+    created () {
+      this.$store.commit('ZCL_VUEX_ERROR_404')
+    }
   }
 </script>
 <style type="text/stylus" lang="stylus">
