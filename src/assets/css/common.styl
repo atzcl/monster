@@ -1,33 +1,33 @@
-// 滚动条的空槽背景
+/* 滚动条的空槽背景 */
 ::-webkit-scrollbar-track-piece {
-  width: 4px;
+  width: 6px;
   height: 4px;
-  background-color: #f5f5f5;
+  transition: all 0.3s;
+  background-color: #f0f0f0;
 }
 
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 6px;
   height: 4px;
+  transition: all 0.3s;
 
   &:hover {
   }
 }
 
-/* 初始化 */
 ::-webkit-scrollbar-thumb {
-  width: 4px;
+  width: 6px;
   height: 4px;
-  border-radius: 8px;
   background-color: #bcbcbc;
-  transition: all 0.3s ease-out 0s;
+  transition: all 0.3s;
 
   &:hover {
-    width: 4px;
-    height: 4px;
+    width: 6px;
     background-color: #3b77e3;
   }
 }
 
+/* 初始化 */
 html {
   font-family: sans-serif;
   line-height: 1.15;

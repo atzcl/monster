@@ -100,7 +100,7 @@ export default class CMSIndex extends Vue {
     {
       attrs: 'value',
       label: 'PV',
-      width: 196,
+      width: 194,
       align: 'center'
     }
   ]

@@ -1,11 +1,10 @@
 <div>
-  <el-row style="margin-bottom: 24px; margin-left: -12px; margin-right: -12px;">
-    <el-col :span="6" style="padding-right: 12px; padding-left: 12px">
+  <el-row class="analysis">
+    <el-col :span="6">
       <div class="zcl-card zcl-bg-fff-row">
         <div class="mate">总浏览PV</div>
         <p class="total">15,439</p>
-        <div class="content"></div>
-        <div class="footer">
+        <div class="content">
           <div>周同比
             <strong>12%</strong>
             <i class="icon zcl-arrLeft-fill main-color-red"></i>
@@ -14,18 +13,19 @@
             <strong>22%</strong>
             <i class="icon zcl-arrUp-fill main-color-lv"></i>
           </div>
+        </div>
+        <div class="footer">
           <div>IP 数
             <strong>12354</strong>
           </div>
         </div>
       </div>
     </el-col>
-    <el-col :span="6" style="padding-right: 12px; padding-left: 12px">
+    <el-col :span="6">
       <div class="zcl-card zcl-bg-fff-row">
         <div class="mate">总浏览PV</div>
         <p class="total">15,439</p>
-        <div class="content"></div>
-        <div class="footer">
+        <div class="content">
           <div>周同比
             <strong>12%</strong>
             <i class="icon zcl-arrLeft-fill main-color-red"></i>
@@ -34,18 +34,19 @@
             <strong>22%</strong>
             <i class="icon zcl-arrUp-fill main-color-lv"></i>
           </div>
+        </div>
+        <div class="footer">
           <div>IP 数
             <strong>12354</strong>
           </div>
         </div>
       </div>
     </el-col>
-    <el-col :span="6" style="padding-right: 12px; padding-left: 12px">
+    <el-col :span="6">
       <div class="zcl-card zcl-bg-fff-row">
         <div class="mate">总浏览PV</div>
         <p class="total">15,439</p>
-        <div class="content"></div>
-        <div class="footer">
+        <div class="content">
           <div>周同比
             <strong>12%</strong>
             <i class="icon zcl-arrLeft-fill main-color-red"></i>
@@ -54,18 +55,19 @@
             <strong>22%</strong>
             <i class="icon zcl-arrUp-fill main-color-lv"></i>
           </div>
+        </div>
+        <div class="footer">
           <div>IP 数
             <strong>12354</strong>
           </div>
         </div>
       </div>
     </el-col>
-    <el-col :span="6" style="padding-left: 12px; padding-right: 12px">
+    <el-col :span="6">
       <div class="zcl-card zcl-bg-fff-row">
         <div class="mate">总浏览PV</div>
         <p class="total">15,439</p>
-        <div class="content"></div>
-        <div class="footer">
+        <div class="content">
           <div>周同比
             <strong>12%</strong>
             <i class="icon zcl-arrLeft-fill main-color-red"></i>
@@ -74,6 +76,8 @@
             <strong>22%</strong>
             <i class="icon zcl-arrUp-fill main-color-lv"></i>
           </div>
+        </div>
+        <div class="footer">
           <div>IP 数
             <strong>12354</strong>
           </div>
@@ -83,19 +87,20 @@
   </el-row>
 
   <div class="zcl-bg-fff-row map-echart">
-      <div class="region-pv">
-          <h3>访问城市 PV Top 10</h3>
-          <el-table :data="tableData" height="360" border>
-              <el-table-column :prop="item.attrs" :label="item.label" :width="item.width" v-for="(item, index) in tableColumns" :key="index" />
-          </el-table>
-      </div>
-      <vue-lazy-component class="custom-transition" style="width: calc(100% - 450px); margin-left: 30px">
-        <template scope="scope">
-          <ve-map :data="echartMapData" :settings="mapSettings" v-if="scope.loading"></ve-map>
-        </template>
-        <skeleton-loading slot="skeleton" />
-      </vue-lazy-component>
+    <div class="region-pv">
+      <h3>访问城市 PV Top 10</h3>
+      <el-table :data="tableData" height="360" border>
+        <el-table-column :prop="item.attrs" :label="item.label" :width="item.width" v-for="(item, index) in tableColumns" :key="index"
+        />
+      </el-table>
     </div>
+    <vue-lazy-component class="custom-transition" style="width: calc(100% - 450px); margin-left: 30px">
+      <template scope="scope">
+        <ve-map :data="echartMapData" :settings="mapSettings" v-if="scope.loading"></ve-map>
+      </template>
+      <skeleton-loading slot="skeleton" />
+    </vue-lazy-component>
+  </div>
 
   <div class="zcl-bg-fff-row line-echart">
     <vue-lazy-component class="custom-transition">

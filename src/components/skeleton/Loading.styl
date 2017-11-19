@@ -9,16 +9,7 @@
     height: 100%;
 }
 
-@keyframes placeHolderShimmer {
-    0% {
-        background-position: -468px 0;
-    }
-
-    100% {
-        background-position: 468px 0;
-    }
-}
-
+/* 样式一 */
 .animated-background {
     animation-duration: 2s;
     animation-fill-mode: forwards;
@@ -32,4 +23,47 @@
     height: 15px;
     position: relative;
     margin-bottom: 10px;
+}
+
+@keyframes placeHolderShimmer {
+    0% {
+        background-position: -468px 0;
+    }
+
+    100% {
+        background-position: 468px 0;
+    }
+}
+
+/* 样式二，抄袭于 ant design */
+.card-loading-block {
+    display: inline-block;
+    margin: 5px 1% 0;
+    height: 14px;
+    border-radius: 2px;
+    background: -webkit-linear-gradient(left, rgba(207, 216, 220, 0.2), rgba(207, 216, 220, 0.4), rgba(207, 216, 220, 0.2));
+    background: linear-gradient(90deg, rgba(207, 216, 220, 0.2), rgba(207, 216, 220, 0.4), rgba(207, 216, 220, 0.2));
+    -webkit-animation: card-loading 1.4s ease infinite;
+    animation: card-loading 1.4s ease infinite;
+    background-size: 600% 600%;
+}
+
+@keyframes card-loading {
+    0%, to {
+        background-position: 0 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes card-loading {
+    0%, to {
+        background-position: 0 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
 }

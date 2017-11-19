@@ -16,13 +16,13 @@ const lazyLoadingChildren = name => () => import(`cms/${name}.ts`)
 const cms = [
   {
     path: '/',
-    meta: { title: 'CMS 模块' },
+    meta: { title: 'Cms Dashboard' },
     component: lazyLoading('CmsModules'),
     children: [
       {
         path: '/',
         name: 'cms.index',
-        meta: { title: 'CMS 模块' },
+        meta: { title: 'Cms Dashboard' },
         component: lazyLoadingChildren('index/Index')
       },
       {
