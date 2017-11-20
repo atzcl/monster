@@ -13,10 +13,11 @@ import * as Template from './Config.html'
   }
 })
 export default class CMSConfig extends Vue {
-  content: string = 'Hello'
+  content: string = ''
 
+  // 监听 UEditor 数据变动
   @Watch('content')
   onContent (newVal, oldVal) {
-    console.log(newVal)
+    // console.log(newVal)
   }
 }

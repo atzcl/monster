@@ -6,12 +6,13 @@
                 size="medium" 
                 :key="index"
                 closable
-                @close="closeTag(index)"
+                @close="closeTag(index, tag.name)"
                 v-for="(tag, index) in $store.state.status.cachePage"
-                @click.native="goView(tag.name)"
         >
-          <span class="tag-dot-inner" :style="tag.name === $route.name ? 'background-color: #4fe3c1' : ''"></span>
+        <span @click="goView(tag.name)">
+          <span class="tag-dot-inner" :style="tag.name === $route.name ? 'background-color: #108ee9' : ''"></span>
           {{ tag.title }}
+        </span>
         </el-tag>
       </transition-group>
     </div>

@@ -13,12 +13,25 @@ export default class TagsPage extends Vue {
   styles
 
   // 路由跳转
-  goView (routeName) {
-    this.$router.push({name: routeName})
+  goView (routeName: string) {
+    this.$router.push({ name: routeName })
   }
 
   // 删除 tag
-  closeTag (index) {
-    console.log(index)
+  closeTag (index: number, name: string) {
+    this.$store.commit('removePage', index)
+    let cachePage = this.$store.state.status.cachePage
+    let toRoute = ''
+    // 判断当前页面是否跟需要删除的页面是同一个
+    if (this.$route.name === name) {
+      if (cachePage.length > 1) {
+        toRoute = cachePage[cachePage.length - 1].name
+      } else {
+        // 都没了，那么就返回首页呗
+        toRoute = 'cms.index'
+      }
+
+      this.$router.push({ name: toRoute })
+    }
   }
 }

@@ -19,6 +19,7 @@ const lazyLoadingChildren = name => () => import(`cms/${name}.ts`)
 const cms = [
   {
     path: '/',
+    meta: { title: 'Cms Dashboard' },
     component: main,
     children: [
       {

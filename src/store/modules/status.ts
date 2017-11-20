@@ -57,14 +57,20 @@ const mutations = {
   // 删除 tags 的菜单
   closePage (state, obj) {
     state.cachePage.forEach((item, index) => {
-      if (item === obj.title) {
+      if (item.name === obj.name && item.path === obj.name) {
         state.cachePage.splice(index, 1)
       }
     })
 
     // 覆盖缓存
     localStorage.cachePage = JSON.stringify(state.cachePage)
+  },
+  // 利用索引删除 tags 菜单
+  removePage (state, index: number) {
+    state.cachePage.splice(index, 1)
+    localStorage.cachePage = JSON.stringify(state.cachePage)
   }
+
 }
 
 // 设置 actions ，用于执行异步操作的，操作完毕后触发 mutations 里的方法去改变 state 的状态 [用于组合多个 mutations]
