@@ -94,9 +94,9 @@
         />
       </el-table>
     </div>
-    <vue-lazy-component class="custom-transition" style="width: calc(100% - 450px); margin-left: 30px">
+    <vue-lazy-component class="custom-transition" style="width: calc(100% - 550px); margin-left: 130px">
       <template scope="scope">
-        <ve-map :data="echartMapData" :settings="mapSettings" v-if="scope.loading"></ve-map>
+        <ve-histogram :data="echartMapData" :settings="mapSettings" v-if="scope.loading"></ve-histogram>
       </template>
       <skeleton-loading slot="skeleton" />
     </vue-lazy-component>

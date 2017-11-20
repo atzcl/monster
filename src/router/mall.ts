@@ -8,14 +8,23 @@
 
 'use strict'
 
+const main = () => import('views/Main.ts')
+
 const lazyLoading = name => () => import(`modules/${name}.ts`)
 
 const mall = [
   {
     path: '/mall',
     meta: { title: '商城模块' },
-    component: lazyLoading('MallModules'),
-    children: []
+    component: main,
+    children: [
+      {
+        path: '/',
+        meta: { title: '商城模块' },
+        component: lazyLoading('MallModules'),
+        children: []
+      }
+    ]
   }
 ]
 

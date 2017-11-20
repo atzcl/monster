@@ -2,7 +2,6 @@
 
 import Vue from 'vue'
 import Component from 'vue-class-component'
-import ZHeader from 'components/header/Zheader'
 
 import * as Template from './app.html'
 
@@ -12,15 +11,5 @@ import './assets/css/face.styl'
 import './assets/css/common.styl'
 
 @Template
-@Component({
-  components: {
-    ZHeader
-  }
-})
-export default class App extends Vue {
-  // methods 方法
-  clickCollapse () {
-    // 变动菜单状态
-    this.$store.dispatch('ToggleMenu')
-  }
-}
+@Component
+export default class App extends Vue {}

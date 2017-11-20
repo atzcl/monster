@@ -12,5 +12,13 @@ export default class TagsPage extends Vue {
   @Prop({ type: String })
   styles
 
-  dynamicTags = ['标签一', '标签二', '标签三']
+  // 路由跳转
+  goView (routeName) {
+    this.$router.push({name: routeName})
+  }
+
+  // 删除 tag
+  closeTag (index) {
+    console.log(index)
+  }
 }

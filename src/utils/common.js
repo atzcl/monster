@@ -73,6 +73,7 @@ const _ValidateExtType = [
   sessionStorage.getItem('uploadFileExp'),
   sessionStorage.getItem('uploadVideExp')
 ]
+
 // 上传文件大小数组
 const _ValidateSize = [
   // 正常图片允许上传大小为 10MB
@@ -173,10 +174,6 @@ const _exceptPage = (obj) => {
   }
 
   return data
-}
-
-const _baseUrl = (route) => {
-  return '/app' + route
 }
 
 export default {

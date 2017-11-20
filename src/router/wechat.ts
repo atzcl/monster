@@ -8,14 +8,23 @@
 
 'use strict'
 
+const main = () => import('views/Main.ts')
+
 const lazyLoading = name => () => import(`modules/${name}.ts`)
 
 const wechat = [
   {
     path: '/wechat',
     meta: { title: '微信模块' },
-    component: lazyLoading('WeChatModules'),
-    children: []
+    component: main,
+    children: [
+      {
+        path: '/',
+        meta: { title: '微信模块' },
+        component: lazyLoading('WeChatModules'),
+        children: []
+      }
+    ]
   }
 ]
 

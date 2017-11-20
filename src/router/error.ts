@@ -8,14 +8,14 @@
 
 'use strict'
 
-const lazyLoading = name => () => import(`views/error/${name}.vue`)
+const lazyLoading = name => () => import(`views/error/${name}.ts`)
 
 const errors = [
   {
     path: '*',
     name: '*',
     meta: { title: '404' },
-    component: lazyLoading('404'),
+    component: lazyLoading('error_404'),
     children: []
   }
 ]

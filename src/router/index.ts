@@ -11,6 +11,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+// 引入 vuex
+import store from '../store'
+
 // 导入路由文件
 import cms from './cms'
 import mall from './mall'
@@ -40,9 +43,16 @@ router.beforeEach((to, from, next) => {
   // 开启进度条
   NProgress.start()
 
+  // 初始化 tags 的 vuex 状态
+  if (store.getters.cachePage.length === 0) {
+    store.commit('initCachepage')
+  }
+
   let titleStr = ''
   for (let i = to.matched.length - 1; i >= 0; i--) {
-    titleStr = `${to.matched[i].meta.title} - `
+    if (to.matched[i].meta.title) {
+      titleStr = `${to.matched[i].meta.title} - `
+    }
   }
 
   titleStr += title
@@ -50,9 +60,15 @@ router.beforeEach((to, from, next) => {
   next()
 })
 
-router.afterEach(transition => {
+router.afterEach((to, from) => {
   // 关闭进度条
   NProgress.done()
+  // 触发 tags 的新增
+  if (to.name !== '*') {
+    store.commit('addCachePage', { title: to.meta.title, name: to.name, path: to.path, params: to.params, query: to.query })
+  }
+  // 回到顶部
+  window.scrollTo(0, 0)
 })
 
 export default router

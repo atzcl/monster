@@ -45,7 +45,7 @@ export default class CmsModules extends Vue {
               id: 36,
               pid: 8,
               name: '七牛云配置',
-              route: '/app/qiniu/index',
+              route: '/qiniu/index',
               icon: '',
               icon_style: ''
             },
@@ -53,7 +53,7 @@ export default class CmsModules extends Vue {
               id: 39,
               pid: 8,
               name: '邮件配置',
-              route: '/app/email/index',
+              route: '/email',
               icon: '',
               icon_style: ''
             }
@@ -384,6 +384,6 @@ export default class CmsModules extends Vue {
           ]
         }
       ]
-    }, 100)
+    }, 1)
   }
 }
