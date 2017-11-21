@@ -12,7 +12,7 @@ npm install or yarn install
 npm run dev or yarn dev
 
 # 3、打包
-npm run build
+npm run build or yarn build
 
 # 3、可视化打包
 npm run build --report
