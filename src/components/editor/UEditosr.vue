@@ -47,42 +47,47 @@
     }
 
     insertScriptTag () {
-      // 判断是否已经有加载
-      let editorScriptTag = <HTMLScriptElement> document.getElementById('editorScriptTag')
-      let configScriptTag = <HTMLScriptElement> document.getElementById('configScriptTag')
+      // 获取 Script 节点
+      let editorScript = <HTMLScriptElement> document.getElementById('editorScript')
+      let configScript = <HTMLScriptElement> document.getElementById('configScript')
 
       // 如果这个tag不存在，则生成相关代码tag以加载代码
       if (editorScriptTag === null) {
-        configScriptTag = document.createElement('script')
-        configScriptTag.type = 'text/javascript'
-        configScriptTag.src = this.UEditorPath + 'neditor.config.js'
-        configScriptTag.id = 'configScriptTag'
-        editorScriptTag = document.createElement('script')
-        editorScriptTag.type = 'text/javascript'
-        editorScriptTag.src = this.UEditorPath + 'neditor.all.js'
-        editorScriptTag.id = 'editorScriptTag'
-        let s = document.getElementsByTagName('head')[0]
-        s.appendChild(configScriptTag)
-        s.appendChild(editorScriptTag)
+        configScript = document.createElement('script')
+        configScript.type = 'text/javascript'
+        configScript.async = true
+        configScript.src = this.UEditorPath + 'neditor.all.js'
+        configScript.id = 'editorScript'
+
+        editorScript = document.createElement('script')
+        editorScript.type = 'text/javascript'
+        editorScript.async = true
+        editorScript.src = this.UEditorPath + 'neditor.config.js'
+        editorScript.id = 'configScript'
+
+        // 动态插入 header
+        let oHead = document.getElementsByTagName('head')[0]
+        oHead.appendChild(configScript)
+        oHead.appendChild(editorScript)
       }
 
       // 等待代码加载完成后初始化编辑器
-      if (configScriptTag.loaded) {
+      if (configScript.onload) {
         this.scriptTagStatus++
       } else {
-        configScriptTag.addEventListener('load', () => {
+        configScript.addEventListener('load', () => {
           this.scriptTagStatus++
-          configScriptTag.loaded = true
+          configScript.onload = true
           this.initEditor()
         })
       }
 
-      if (editorScriptTag.loaded) {
+      if (editorScript.onload) {
         this.scriptTagStatus++
       } else {
-        editorScriptTag.addEventListener('load', () => {
+        editorScript.addEventListener('load', () => {
           this.scriptTagStatus++
-          editorScriptTag.loaded = true
+          editorScript.onload = true
           this.initEditor()
         })
       }

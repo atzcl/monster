@@ -39,7 +39,7 @@
     padding: 20px 24px 8px;
 
     .mate {
-      color: rgba(0, 0, 0, 0.45);
+      color: $rgbaColorLight;
       font-size: 14px;
       position: relative;
       line-height: 22px;
@@ -52,7 +52,7 @@
       text-overflow: ellipsis;
       word-break: break-all;
       white-space: nowrap;
-      color: rgba(0, 0, 0, 0.85);
+      color: $rgbaColorBig;
       margin-top: 4px;
       font-size: 30px;
       line-height: 38px;
@@ -132,4 +132,12 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.zcl-two-row {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
