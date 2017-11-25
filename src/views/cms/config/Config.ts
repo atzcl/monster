@@ -1,23 +1,45 @@
 'use strict'
 
-import { Component, Vue, Watch } from 'vue-property-decorator'
-
-import UEditor from 'components/editor/UEditor.vue'
+import { Component, Vue } from 'vue-property-decorator'
 
 import * as Template from './Config.html'
 
 @Template
-@Component({
-  components: {
-    UEditor
-  }
-})
+@Component
 export default class CMSConfig extends Vue {
-  content: string = ''
+  isLoading: boolean = true
+  // tabs 默认展开
+  activeName: string = 'basic'
+  // 表单数据
+  ruleForm: any = {
+    name: '',
+    region: '',
+    date1: '',
+    date2: '',
+    delivery: false,
+    type: [],
+    resource: '',
+    desc: ''
+  }
 
-  // 监听 UEditor 数据变动
-  @Watch('content')
-  onContent (newVal, oldVal) {
-    // console.log(newVal)
+  // 表单验证规则
+  rules: any = {}
+
+  activated () {
+    this.initData()
+  }
+
+  initData () {
+    setTimeout(() => {
+      this.isLoading = false
+    }, 1000)
+  }
+
+  submit () {
+    this.$message({
+      showClose: true,
+      message: '恭喜你，这是一条成功消息',
+      type: 'success'
+    })
   }
 }

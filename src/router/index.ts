@@ -61,14 +61,15 @@ router.beforeEach((to, from, next) => {
 })
 
 router.afterEach((to, from) => {
-  // 关闭进度条
-  NProgress.done()
   // 触发 tags 的新增
   if (to.name !== '*') {
     store.commit('addCachePage', { title: to.meta.title, name: to.name, path: to.path, params: to.params, query: to.query })
   }
   // 回到顶部
   window.scrollTo(0, 0)
+
+  // 关闭进度条
+  NProgress.done()
 })
 
 export default router

@@ -1,16 +1,12 @@
 /* ********** 其他变量 *********** */
-// 字体大小
 $fontSize = 16px;
 $fontSizeDefault = 14px;
 $fontSizeSm = 12px;
-
-$rgbaColorLight = rgba(0, 0, 0, .45);
-$rgbaColor = rgba(0, 0, 0, .65);
-$rgbaColorBig = rgba(0, 0, 0, .85);
-
+$rgbaColorLight = rgba(0, 0, 0, 0.45);
+$rgbaColor = rgba(0, 0, 0, 0.65);
+$rgbaColorBig = rgba(0, 0, 0, 0.85);
 /* ********** 其他变量end *********** */
 /* ********** 颜色变量 *********** */
-// 主色
 $mainColor = #3b77e3;
 // 主辅色
 $mainAidColor = #5B8CFF;
@@ -19,8 +15,8 @@ $mainAidColorLight = #e6f7ff;
 $mainGreenColor = #52c41a;
 // 主红色
 $mainRedColor = #f5222d;
-/* ********** 颜色变量 end *********** */
 
+/* ********** 颜色变量 end *********** */
 /* 滚动条的空槽背景 */
 ::-webkit-scrollbar-track-piece {
   width: 6px;
@@ -176,5 +172,80 @@ ol, ul {
 .main-aid-hover-bg {
   &:hover {
     background-color: $mainAidColorLight;
+  }
+}
+
+/* * 覆盖 element-ui 样式 * */
+/* tabs 的线条、选中颜色 */
+.el-tabs__nav-wrap {
+  &:after {
+    height: 1px !important;
+    background-color: #e8e8e8 !important;
+  }
+}
+
+.el-tabs__active-bar {
+  background-color: $mainColor !important;
+}
+
+/* input */
+.el-input--small {
+  height: 32px;
+
+  .el-input__inner {
+    border: 1px solid #d9d9d9;
+    list-style: none;
+    transition: all 0.3s !important;
+
+    &:focus {
+      border-color: #40a9ff;
+      outline: 0;
+      box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+    }
+
+    &:hover {
+      border-color: #40a9ff !important;
+    }
+  }
+}
+
+/* 按钮 */
+.el-button, .el-button {
+  transition: all 0.3s;
+  padding: 8px 15px !important;
+
+  &:hover {
+    border-color: #40a9ff !important;
+    background-color: transparent !important;
+  }
+}
+
+.el-button--primary {
+  transition: all 0.3s;
+
+  &:hover {
+    border-color: #40a9ff !important;
+    background-color: #40a9ff !important;
+  }
+}
+
+/* message 提示 */
+.el-message {
+  min-width: 20px !important;
+  padding: 10px 46px 10px 16px !important;
+  border-radius: 4px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+  background: #fff !important;
+  border-color: transparent !important;
+
+  .el-icon-success {
+    color: #00a854 !important;
+  }
+
+  .el-message__content {
+    position: relative;
+    top: -1px;
+    color: $rgbaColor !important;
+    font-size: 13px !important;
   }
 }

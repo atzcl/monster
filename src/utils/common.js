@@ -191,6 +191,5 @@ export default {
   _downloadType,
   _each,
   _flatten,
-  _exceptPage,
-  _baseUrl
+  _exceptPage
 }
