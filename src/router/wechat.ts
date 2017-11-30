@@ -18,12 +18,7 @@ const wechat = [
     meta: { title: '微信模块' },
     component: main,
     children: [
-      {
-        path: '/',
-        meta: { title: '微信模块' },
-        component: lazyLoading('WeChatModules'),
-        children: []
-      }
+      { path: '/', meta: { title: '微信模块' }, component: lazyLoading('WeChatModules'), children: [] }
     ]
   }
 ]

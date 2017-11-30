@@ -18,7 +18,7 @@ export default {
    * @param url
    * @param params
    */
-  get (url: string, params) {
+  get (url: string, params: any) {
     // 重置请求 URL
     config.url = url
     // 重置 GET 携带参数
@@ -53,9 +53,9 @@ export default {
    * @param url 请求 url
    * @param param 提交的数据
    */
-  post (url: string, param) {
+  post (url: string, data: any) {
     // 重置 POST 提交数据
-    config.data = param
+    config.data = data
     config.params = ''
     return axios
       .post(url, {}, config)
@@ -86,7 +86,7 @@ export default {
    * @param url
    * @param param
    */
-  put (url: string, data) {
+  put (url: string, data: any) {
     config.data = data
     config.params = ''
     return axios
@@ -119,9 +119,9 @@ export default {
    * @param param
    * @param params
    */
-  delete (url, data, params) {
+  delete (url: string, data: any, params: any) {
     config.data = data
-    config.params = ''
+    config.params = params
     return axios
       .delete(url, config)
       .then(res => {

@@ -210,14 +210,28 @@ ol, ul {
 }
 
 /* 按钮 */
-.el-button, .el-button {
-  transition: all 0.3s;
+.el-button {
+  transition: all 0.3s !important;
   padding: 8px 15px !important;
+  border-color: #d9d9d9;
+
+  span {
+    color: $rgbaColor;
+    transition: all 0.3s;
+  }
 
   &:hover {
     border-color: #40a9ff !important;
     background-color: transparent !important;
+
+    span {
+      color: #409EFF;
+    }
   }
+}
+
+.el-button--mini, .el-button--small {
+  border-radius: 4px !important;
 }
 
 .el-button--primary {
@@ -248,4 +262,30 @@ ol, ul {
     color: $rgbaColor !important;
     font-size: 13px !important;
   }
+}
+
+/* tabs */
+.el-tabs__item {
+  color: $rgbaColor !important;
+}
+
+.el-tabs__item.is-active {
+  color: #409EFF !important;
+}
+
+/* 表格 */
+.el-table thead {
+  color: $rgbaColorBig !important;
+}
+
+.el-table--border th {
+  background-color: #f7f7f7;
+}
+
+.el-table--enable-row-hover .el-table__body tr {
+  transition: all 0.3s;
+}
+
+.el-table--enable-row-hover .el-table__body tr:hover>td {
+  background-color: #ecf6fd !important;
 }

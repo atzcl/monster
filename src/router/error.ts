@@ -11,13 +11,7 @@
 const lazyLoading = name => () => import(`views/error/${name}.ts`)
 
 const errors = [
-  {
-    path: '*',
-    name: '*',
-    meta: { title: '404' },
-    component: lazyLoading('error_404'),
-    children: []
-  }
+  { path: '*', name: '*', meta: { title: '404' }, component: lazyLoading('error_404'), children: [] }
 ]
 
 export default errors

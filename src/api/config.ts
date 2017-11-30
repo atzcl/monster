@@ -11,16 +11,16 @@
 import Qs from 'qs'
 
 export default {
-  // 请求的接口，在请求的时候，如axios.get(url,config);这里的url会覆盖掉config中的url
+  // 请求的接口，在请求的时候，如 axios.get(url, config); 这里的 url 会覆盖掉 config 中的 url
   url: '/route',
-  // `baseURL`将被添加到`url`前面，除非`url`是绝对的。
-  // 可以方便地为 axios 的实例设置`baseURL`，以便将相对 URL 传递给该实例的方法。
+  // `baseURL`将被添加到 `url` 前面，除非 `url` 是绝对的。
+  // 可以方便地为 axios 的实例设置 `baseURL`，以便将相对 URL 传递给该实例的方法。
   baseURL: '/system/v1/',
   // `method`是发出请求时使用的请求方法
   method: 'POST',
   transformRequest: [
     function (data) {
-      // 这里可以在发送请求之前对请求数据做处理，比如form-data格式化等，这里可以使用开头引入的Qs（这个模块在安装axios的时候就已经安装了，不需要另外安装）
+      // 这里可以在发送请求之前对请求数据做处理，比如form-data格式化等，这里可以使用开头引入的 Qs（这个模块在安装 axios 的时候就已经安装了，不需要另外安装）
       // 由于使用的form-data传数据所以要格式化
       data = Qs.stringify(data)
       return data

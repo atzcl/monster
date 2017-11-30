@@ -71,7 +71,7 @@ export default class CmsModules extends Vue {
               id: 42,
               pid: 9,
               name: '轮播图列表',
-              route: '/app/slides/index',
+              route: '/slides',
               icon: '',
               icon_style: ''
             },

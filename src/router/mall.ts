@@ -18,12 +18,7 @@ const mall = [
     meta: { title: '商城模块' },
     component: main,
     children: [
-      {
-        path: '/',
-        meta: { title: '商城模块' },
-        component: lazyLoading('MallModules'),
-        children: []
-      }
+      { path: '/', meta: { title: '商城模块' }, component: lazyLoading('MallModules'), children: [] }
     ]
   }
 ]

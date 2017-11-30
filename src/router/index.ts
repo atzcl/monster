@@ -66,7 +66,7 @@ router.afterEach((to, from) => {
     store.commit('addCachePage', { title: to.meta.title, name: to.name, path: to.path, params: to.params, query: to.query })
   }
   // 回到顶部
-  window.scrollTo(0, 0)
+  // window.scrollTo(0, 0)
 
   // 关闭进度条
   NProgress.done()
