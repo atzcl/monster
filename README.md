@@ -28,3 +28,5 @@ yarn install
 ```bash
 yarn serve
 ```
+## 注意事项
+封装的 ` Ueditor ` 编辑器默认加载远程 ` CDN ` 资源文件，如果需要加载本地资源，请解压 ` public/static/neditor.zip ` 文件。
