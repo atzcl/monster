@@ -1,0 +1,18 @@
+/*可以在这里添加你自己的css*/
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+body {
+    font-family: Menlo, "Ubuntu Mono", Consolas, "Courier New", "Microsoft Yahei", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #2c3e50;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+code, pre{
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace
+}

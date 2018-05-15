@@ -1,16 +1,41 @@
 {
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true,
-    "allowJs": true,
+    "target": "esnext",
     "module": "esnext",
-    "target": "es5",
+    "strict": true,
+    "jsx": "preserve",
     "moduleResolution": "node",
-    "isolatedModules": true,
-    "lib": ["dom", "es5", "esnext", "es2015.promise"],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strictPropertyInitialization": false, // 避免 Property 'xxx' has no initializer and is not definitely assigned in the constructor.
+    "allowSyntheticDefaultImports": true,
     "sourceMap": true,
-    "pretty": true
+    "baseUrl": ".",
+    "types": [
+      "node",
+    ],
+    "paths": {
+      "@/*": [ "src/*" ],
+      "views_alias/*": [ "src/views/*" ],
+      "store_alias/*": [ "src/store/*" ],
+      "cms_alias/*": [ "src/views/cms/*" ],
+      "utils_alias/*": [ "src/utils/*" ],
+      "mixins_alias/*": [ "src/mixins/*" ],
+      "assets_alias/*": [ "src/assets/*" ],
+      "extends_alias/*": [ "src/extends/*" ],
+      "services_alias/*": [ "src/services/*" ],
+      "components_alias/*": [ "src/components/*" ],
+    }
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "tests/**/*.ts",
+    "tests/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

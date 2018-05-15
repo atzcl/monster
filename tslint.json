@@ -1,9 +1,49 @@
 {
-  "extends": "tslint-config-standard",
-  "globals": {
-    "require": true
-  },
+  "defaultSeverity": "warning",
+  "extends": [
+    "tslint:latest"
+  ],
   "rules": {
-    "no-consecutive-blank-lines": false
+    "indent": [true, "spaces", 2],
+    "ordered-imports": false,
+    "object-literal-sort-keys": false,
+    "no-consecutive-blank-lines": false,
+    "quotemark": [
+      true,
+      "single",
+      "jsx-double"
+    ],
+    "no-console": false,
+    "space-before-function-paren": false,
+    "no-submodule-imports": false,
+    "interface-name": [
+      true,
+      "never-prefix"
+    ],
+    "adjacent-overload-signatures": true,
+    "member-access": [
+      false
+    ],
+    "member-ordering": [
+      true,
+      {
+        "order": "fields-first"
+      }
+    ],
+    "max-classes-per-file": [
+      true,
+      10
+    ],
+    "variable-name": [
+      true,
+      "allow-leading-underscore"
+    ],
+    "align": [true, "statements"],
+    "no-object-literal-type-assertion": false,
+    "no-implicit-dependencies": false,
+    "max-line-length": false,
+    "radix": false,
+    "no-shadowed-variable": false,
+    "no-this-assignment": [true, {"allowed-names": ["^self$"], "allow-destructuring": true}]
   }
 }

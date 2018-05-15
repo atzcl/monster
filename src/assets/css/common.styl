@@ -7,9 +7,9 @@ $rgbaColor = rgba(0, 0, 0, 0.65);
 $rgbaColorBig = rgba(0, 0, 0, 0.85);
 /* ********** 其他变量end *********** */
 /* ********** 颜色变量 *********** */
-$mainColor = #3b77e3;
+$mainColor = #1890ff;
 // 主辅色
-$mainAidColor = #5B8CFF;
+$mainAidColor = #40a9ff;
 $mainAidColorLight = #e6f7ff;
 // 主绿色
 $mainGreenColor = #52c41a;
@@ -53,14 +53,21 @@ html {
 }
 
 body {
-  font-family: 'Helvetica Neue For Number', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   font-size: 14px;
   line-height: 1.5;
   color: $rgbaColor;
-  background-color: #f0f2f5;
+  background-color: #f7f7f7;
   overflow-x: hidden;
   width: 100%;
   height: 100%;
+  color: #2c3e50;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 article, aside, blockquote, body, button, dd, details, div, dl, dt, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, hr, input, legend, li, menu, nav, ol, p, section, td, textarea, th, ul {
@@ -198,7 +205,7 @@ ol, ul {
     transition: all 0.3s !important;
 
     &:focus {
-      border-color: #40a9ff;
+      border-color: $mainAidColor;
       outline: 0;
       box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
     }
@@ -213,7 +220,6 @@ ol, ul {
 .el-button {
   transition: all 0.3s !important;
   padding: 8px 15px !important;
-  border-color: #d9d9d9;
 
   span {
     color: $rgbaColor;
@@ -221,11 +227,11 @@ ol, ul {
   }
 
   &:hover {
-    border-color: #40a9ff !important;
+    border-color: $mainAidColor !important;
     background-color: transparent !important;
 
     span {
-      color: #409EFF;
+      color: $mainAidColor;
     }
   }
 }
@@ -234,12 +240,21 @@ ol, ul {
   border-radius: 4px !important;
 }
 
+// 默认按钮
 .el-button--primary {
-  transition: all 0.3s;
+  background-color: $mainColor
+
+  span {
+    color: #fff
+  }
 
   &:hover {
-    border-color: #40a9ff !important;
-    background-color: #40a9ff !important;
+    border-color: $mainAidColor !important;
+    background-color: $mainAidColor !important;
+
+    span {
+      color: #fff;
+    }
   }
 }
 
@@ -270,7 +285,7 @@ ol, ul {
 }
 
 .el-tabs__item.is-active {
-  color: #409EFF !important;
+  color: $mainAidColor !important;
 }
 
 /* 表格 */
@@ -288,4 +303,113 @@ ol, ul {
 
 .el-table--enable-row-hover .el-table__body tr:hover>td {
   background-color: #ecf6fd !important;
+}
+
+// card 卡片
+.el-card {
+  border: solid 1px #ebebeb;
+  border-radius: 4px;
+  display: flex;
+  color: #545763;
+  margin-bottom: 20px;
+}
+
+.el-card.is-always-shadow {
+  box-shadow: none;
+}
+
+.el-card.is-hover-shadow {
+  &:hover {
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    transform: translate3d(0, -2px, 0);
+  }
+}
+
+.el-card__body {
+  padding: 6px 12px;
+  width: 100%;
+}
+
+.icon {
+  /* 通过设置 font-size 来改变图标大小 */
+  width: 1em;
+  height: 1em;
+  /* 图标和文字相邻时，垂直对齐 */
+  vertical-align: -0.15em;
+  /* 通过设置 color 来改变 SVG 的颜色/fill */
+  fill: currentColor;
+  /* path 和 stroke 溢出 viewBox 部分在 IE 下会显示
+  normalize.css 中也包含这行 */
+  overflow: hidden;
+  position: relative;
+}
+
+// element-ui 的 el-checkbox-group 样式
+.form-container {
+  padding: 10px;
+
+  .el-checkbox-group:after {
+    clear: both;
+    visibility: hidden;
+    font-size: 0;
+    height: 0;
+  }
+
+  .el-select .el-input {
+    width: 380px;
+  }
+
+  .el-form {
+    width: 460px;
+  }
+
+  .line {
+    text-align: center;
+  }
+
+  .el-checkbox-group {
+    width: 320px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .el-checkbox-group {
+    .el-checkbox {
+      float: left;
+      width: 160px;
+      padding-right: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .el-checkbox+.el-checkbox {
+      margin-left: 0;
+    }
+
+    &:after, &:before {
+      content: ' ';
+      display: table;
+    }
+  }
+
+  .form-container-normal {
+    width: 460px;
+  }
+
+  .form-container-inline {
+    width: auto;
+
+    .el-input {
+      width: 150px;
+    }
+
+    >* {
+      margin-right: 10px;
+    }
+  }
+
+  .fr {
+    float: right;
+  }
 }

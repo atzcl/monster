@@ -17,7 +17,7 @@ $mainGreenColor = #52c41a;
 $mainRedColor = #f5222d;
 
 /* ********** 颜色变量 end *********** */
-.zcl-main {
+.main {
   width: 100%;
   height: 100%;
 }
@@ -29,28 +29,16 @@ $mainRedColor = #f5222d;
   background: #f0f2f5;
 }
 
-.zcl-content {
-  padding: 65px 24px;
-  position: absolute;
-  top: 64px;
-  right: 0;
-  bottom: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
-  z-index: 1;
-  transition: left 0.3s;
+// 右侧
+.z_content {
+  width calc(100% - 160px)
+  position relative
+  min-height: 100vh
+  transition: all .3s ease-in-out;
 
-  /* 通用 view class */
-  .zcl-bg-fff-row {
-    background-color: #fff;
-    border-radius: 2px;
-    transition: all 0.4s;
-
-    &:hover {
-      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-      transform: translate3d(0, -2px, 0);
-      cursor: pointer;
-    }
+  // 主体内容
+  .z_body {
+    padding: 15px 15px 30px 15px
   }
 
   /* 统计 class */
@@ -99,46 +87,9 @@ $mainRedColor = #f5222d;
       }
     }
   }
-
-  /* cms 首页 line */
-  .line-echart {
-    height: 400px;
-    padding-top: 20px;
-    margin-top: 24px;
-  }
-
-  /* cms 首页地图 */
-  .map-echart {
-    height: 400px;
-    padding-top: 20px;
-    width: 100%;
-    display: flex;
-
-    .region-pv {
-      width: 400px;
-      margin-top: -10px;
-      margin-left: 20px;
-
-      h3 {
-        margin-bottom: 15px;
-      }
-    }
-  }
 }
 
-/* 统计区域 */
-.analysis {
-  margin-bottom: 24px;
-  margin-left: -12px;
-  margin-right: -12px;
-
-  .el-col-6 {
-    padding-right: 12px;
-    padding-left: 12px;
-  }
-}
-
-.zcl-cursor {
+.z-cursor {
   cursor: pointer;
 }
 
@@ -155,22 +106,6 @@ $mainRedColor = #f5222d;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
-}
-
-/* 卡片 */
-.zcl-card {
-  font-family: 'Helvetica Neue For Number', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.5;
-  color: $rgbaColor;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  background: #fff;
-  border-radius: 2px;
-  position: relative;
-  transition: all 0.3s;
 }
 
 /* 表单 */
@@ -198,17 +133,6 @@ $mainRedColor = #f5222d;
 }
 
 /* 按钮 */
-.zcl-btn-primary {
-  background-color: #2d8cf0 !important;
-  border-color: #2d8cf0 !important;
-  transition: all .3s;
-
-  &:hover {
-    background-color: #57a3f3 !important;
-    border-color: #57a3f3 !important;
-  }
-
-  span {
-      color: #fff !important;
-  }
+.submit-item {
+  padding-top: 15px
 }
