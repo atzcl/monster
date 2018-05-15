@@ -2,6 +2,8 @@
 node_modules
 /dist
 /public/static/neditor
+yarn.lock
+package.json.lock
 
 # local env files
 .env.local
