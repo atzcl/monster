@@ -34,10 +34,10 @@ import TheHeader from 'components_alias/app/header/TheHeader.vue';
   },
 })
 export default class Main extends mixins(BaseMixin) {
-   // 路由数组
+  // 路由数组
   menuArray: any[] = [];
 
-   // 折叠菜单的样式
+  // 折叠菜单的样式
   get conStyle () {
     const size = this.state.header.isCollapse ? 64 : 160;
 

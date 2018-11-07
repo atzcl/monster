@@ -1,6 +1,37 @@
 const path = require('path')
 
+const CompressionWebpackPlugin = require('compression-webpack-plugin')
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
+
 const baseUrl = 'http://kt.test'
+
+// 是否使用gzip
+const productionGzip = true
+// 需要gzip压缩的文件后缀
+const productionGzipExtensions = [ 'js', 'css' ]
+
+// CDN 外链，会插入到 index.html 中
+const cdn = {
+  not_cdn_css: [
+    '//at.alicdn.com/t/font_901683_zas65ziyk3.css'
+  ],
+  css: [
+    'element-ui@2.4.8/lib/theme-chalk/index.css',
+    'v-charts/lib/style.min.css',
+  ],
+  js: [
+    'vue@2.5.17/dist/vue.min.js',
+    'vue-router@3.0.1/dist/vue-router.min.js',
+    // 'vuex@3.0.1/dist/vuex.min.js',
+    'element-ui@2.4.9/lib/index.js',
+    'axios@0.18.0/dist/axios.min.js',
+    'echarts/dist/echarts.min.js',
+    'v-charts/lib/index.min.js',
+  ],
+  defer: [
+    '//at.alicdn.com/t/font_665796_7w1ilsivnthb0529.js'
+  ]
+}
 
 module.exports = {
   // 项目部署的基础路径
@@ -10,7 +41,7 @@ module.exports = {
   // 指定子路径。比如，如果你的应用部署在
   // https://www.foobar.com/my-app/
   // 那么将这个值改为 `/my-app/`
-  baseUrl: '/static/app',
+  // baseUrl: '/static/app',
 
   // 将构建好的文件输出到哪里
   outputDir: 'dist',
@@ -21,7 +52,7 @@ module.exports = {
   lintOnSave: true,
 
   // 使用带有浏览器内编译器的完整构建版本
-  compiler: false,
+  runtimeCompiler: false,
 
   // babel-loader 默认会跳过 node_modules 依赖。
   // 通过这个选项可以显式转译一个依赖。
@@ -48,8 +79,53 @@ module.exports = {
       .set('extends_alias', path.resolve('src/extends'))
       .set('services_alias', path.resolve('src/services'))
       .set('components_alias', path.resolve('src/components'))
+
+    /**
+     * 添加CDN参数到htmlWebpackPlugin配置中
+     */
+    config
+    .plugin('html')
+    .tap(args => {
+      args[0].cdn = cdn
+      return args
+    })
   },
-  configureWebpack: () => {},
+  configureWebpack: () => {
+    const config = {};
+
+    config.externals = {
+      'vue': 'Vue',
+      'vue-router': 'VueRouter',
+      'element-ui': 'ELEMENT',
+      'axios': 'axios',
+      'VueI18n': 'VueI18n',
+    }
+
+    // lodash 按需加载
+    config.plugins = [
+      new LodashModuleReplacementPlugin()
+    ];
+
+    // 构建时开启 gzip，降低服务器压缩对 CPU 资源的占用，服务器也要相应开启 gzip
+    productionGzip && config.plugins.push(
+      new CompressionWebpackPlugin({
+        test: new RegExp('\\.(' + productionGzipExtensions.join('|') + ')$'),
+        threshold: 8192,
+        minRatio: 0.8
+      })
+    )
+
+    if (process.env.NODE_ENV === 'development') {
+      /**
+       * 关闭 host check，方便使用 ngrok 之类的内网转发工具
+       */
+      config.devServer = {
+        disableHostCheck: true
+      }
+    }
+
+    return config;
+  },
 
   // CSS 相关选项
   css: {
@@ -59,7 +135,7 @@ module.exports = {
 
     // 为所有的 CSS 及其预处理文件开启 CSS Modules。
     // 这个选项不会影响 `*.vue` 文件。
-    // modules: false,
+    modules: false,
 
     // 是否开启 CSS source map？
     sourceMap: false,
@@ -67,15 +143,12 @@ module.exports = {
     // 为预处理器的 loader 传递自定义选项。比如传递给
     // sass-loader 时，使用 `{ sass: { ... } }`。
     loaderOptions: {
-      // stylus: {
-      //   import: [
-      //     // variables.styl全局变量文件
-      //     path.resolve('src/assets/css/variables.styl')
-      //   ],
-      //   paths: [
-      //     path.resolve('src/assets/css/')
-      //   ]
-      // }
+      stylus: {
+        import: [
+          // config.styl 全局变量文件
+          path.resolve('src/assets/css/config.styl')
+        ],
+      }
     },
   },
 
@@ -93,16 +166,7 @@ module.exports = {
     port: 8787,
     https: false,
     hotOnly: false,
-    proxy: {
-      '/v1/*': {
-        target: baseUrl,
-        changeOrigin: true
-      },
-      '/editor/server': {
-        target: baseUrl,
-        changeOrigin: true
-      }
-    }, // string | Object
+    proxy: baseUrl, // string | Object
     before: app => {}
   },
 

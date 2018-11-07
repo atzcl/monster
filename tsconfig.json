@@ -25,7 +25,13 @@
       "extends_alias/*": [ "src/extends/*" ],
       "services_alias/*": [ "src/services/*" ],
       "components_alias/*": [ "src/components/*" ],
-    }
+    },
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
+    ]
   },
   "include": [
     "src/**/*.ts",

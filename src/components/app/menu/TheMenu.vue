@@ -32,8 +32,8 @@
 </template>
 
 <script lang="ts">
-  import vm from './';
-  export default vm;
+import vm from './';
+export default vm;
 </script>
 
 <style lang="stylus" scoped>
@@ -85,7 +85,7 @@
     border-right 1px solid #ebebeb
 
     .el-submenu__title {
-        i {
+        .icon {
             margin-right 6px
         }
 

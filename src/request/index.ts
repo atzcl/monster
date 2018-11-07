@@ -6,8 +6,6 @@
 |
 */
 
-'use strict';
-
 import axios from 'axios';
 import config from './config';
 import store from '../store';

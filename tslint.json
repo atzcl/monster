@@ -1,49 +1,41 @@
 {
   "defaultSeverity": "warning",
-  "extends": [
-    "tslint:latest"
-  ],
+  "extends": ["tslint:latest"],
+  "linterOptions": {
+    "exclude": [
+      "node_modules/**"
+    ]
+  },
   "rules": {
     "indent": [true, "spaces", 2],
     "ordered-imports": false,
     "object-literal-sort-keys": false,
     "no-consecutive-blank-lines": false,
-    "quotemark": [
-      true,
-      "single",
-      "jsx-double"
-    ],
+    "quotemark": [true, "single", "jsx-double"],
     "no-console": false,
     "space-before-function-paren": false,
     "no-submodule-imports": false,
-    "interface-name": [
-      true,
-      "never-prefix"
-    ],
+    "interface-name": [true, "never-prefix"],
     "adjacent-overload-signatures": true,
-    "member-access": [
-      false
-    ],
+    "member-access": [false],
+    "no-unused-expression": false,
     "member-ordering": [
       true,
       {
         "order": "fields-first"
       }
     ],
-    "max-classes-per-file": [
-      true,
-      10
-    ],
-    "variable-name": [
-      true,
-      "allow-leading-underscore"
-    ],
+    "max-classes-per-file": [true, 10],
+    "variable-name": [false, "allow-leading-underscore"],
     "align": [true, "statements"],
     "no-object-literal-type-assertion": false,
     "no-implicit-dependencies": false,
     "max-line-length": false,
     "radix": false,
     "no-shadowed-variable": false,
-    "no-this-assignment": [true, {"allowed-names": ["^self$"], "allow-destructuring": true}]
+    "no-this-assignment": [
+      true,
+      { "allowed-names": ["^self$"], "allow-destructuring": true }
+    ]
   }
 }

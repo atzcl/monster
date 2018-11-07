@@ -4,7 +4,18 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <link rel="shortcut icon" type="image/png" href="//store.zcloop.com/static/images/default/logo.png">
+
+    <!-- 使用 CDN 加速的 CSS 文件 -->
+    <% for (var i in htmlWebpackPlugin.options.cdn&&htmlWebpackPlugin.options.cdn.css) { %>
+      <link href="https://cdn.jsdelivr.net/npm/<%= htmlWebpackPlugin.options.cdn.css[i] %>" rel="stylesheet">
+    <% } %>
+
+    <!-- 不使用 CDN 加速的 CSS 文件 -->
+    <% for (var i in htmlWebpackPlugin.options.cdn&&htmlWebpackPlugin.options.cdn.not_cdn_css) { %>
+      <link href="<%= htmlWebpackPlugin.options.cdn.not_cdn_css[i] %>" rel="stylesheet">
+    <% } %>
+
     <title>monster</title>
   </head>
   <body>
@@ -14,6 +25,14 @@
     <div id="app"></div>
     <!-- built files will be auto injected -->
 
-    <script src="//at.alicdn.com/t/font_665796_7w1ilsivnthb0529.js"></script>
+    <!-- 使用 CDN 加速的 JS 文件 -->
+    <% for (var i in htmlWebpackPlugin.options.cdn&&htmlWebpackPlugin.options.cdn.js) { %>
+      <script src="https://cdn.jsdelivr.net/npm/<%= htmlWebpackPlugin.options.cdn.js[i] %>"></script>
+    <% } %>
+
+    <!-- 使用 CDN 加速的 JS 文件 -->
+    <% for (var i in htmlWebpackPlugin.options.cdn&&htmlWebpackPlugin.options.cdn.defer) { %>
+      <script defer="defer" src="<%= htmlWebpackPlugin.options.cdn.defer[i] %>"></script>
+    <% } %>
   </body>
 </html>

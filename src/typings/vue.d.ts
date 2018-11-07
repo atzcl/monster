@@ -12,6 +12,7 @@ declare module 'vue/types/vue' {
 declare global {
   // 拓展 Window 全局对象
   interface Window {
+    vueApp: Vue;
     UE: any;
     UEDITOR_CONFIG: any;
     UEDITOR_HOME_URL: string;
